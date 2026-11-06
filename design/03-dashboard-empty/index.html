@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Herdline - Dashboard</title>
+<!-- Google Fonts: Sora & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Sora:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-variant": "#e1e2ed",
+            "secondary-fixed-dim": "#b0c6ff",
+            "tertiary": "#9a4100",
+            "inverse-surface": "#2d3039",
+            "on-secondary": "#ffffff",
+            "border": "#DCE3EE",
+            "accentFill": "#1B65DA",
+            "surface-container-high": "#e6e7f3",
+            "secondary-container": "#2c6fe4",
+            "primary-fixed-dim": "#afc6ff",
+            "surface-tint": "#0058c8",
+            "surfaceAlt": "#F4F7FC",
+            "primary-fixed": "#d9e2ff",
+            "danger-bg": "#FBE5E5",
+            "surface-container-lowest": "#ffffff",
+            "error-container": "#ffdad6",
+            "on-secondary-fixed-variant": "#00429a",
+            "on-background": "#191b23",
+            "borderStrong": "#8B92B8",
+            "warning-bg": "#FAEFE1",
+            "text-primary": "#0C131F",
+            "surface-container": "#ecedf8",
+            "supportStrong": "#1EAA52",
+            "info-text": "#1B65DA",
+            "on-tertiary-container": "#fffbff",
+            "on-primary-fixed": "#001944",
+            "surface-container-highest": "#e1e2ed",
+            "secondary": "#0056c5",
+            "text-secondary": "#4A5568",
+            "accentTint": "#E3EEFF",
+            "on-error": "#ffffff",
+            "accentPressed": "#2262CA",
+            "on-tertiary": "#ffffff",
+            "on-surface-variant": "#424754",
+            "error": "#ba1a1a",
+            "on-tertiary-fixed-variant": "#783100",
+            "outline-variant": "#c2c6d7",
+            "outline": "#727786",
+            "on-primary-fixed-variant": "#00429a",
+            "info-bg": "#E4EDFB",
+            "surface-bright": "#faf8ff",
+            "tertiary-fixed": "#ffdbcb",
+            "surface-container-low": "#f2f3fe",
+            "tertiary-fixed-dim": "#ffb690",
+            "on-surface": "#191b23",
+            "secondary-fixed": "#d9e2ff",
+            "on-secondary-container": "#fefcff",
+            "inverse-on-surface": "#eff0fb",
+            "on-error-container": "#93000a",
+            "support": "#4ADE80",
+            "warning-text": "#A75906",
+            "on-tertiary-fixed": "#341100",
+            "on-primary": "#ffffff",
+            "danger-text": "#CE2020",
+            "primary-container": "#0e6ef2",
+            "primary": "#0056c4",
+            "success-bg": "#E3F4E9",
+            "text-tertiary": "#677283",
+            "surface": "#FFFFFF",
+            "inverse-primary": "#afc6ff",
+            "surface-dim": "#d8d9e4",
+            "on-secondary-fixed": "#001944",
+            "background": "#F4F7FC",
+            "success-text": "#0E7C3A",
+            "accent": "#2B7BFF",
+            "on-primary-container": "#fefcff",
+            "tertiary-container": "#c15400"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1.25rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "space-xs": "4px",
+            "space-xl": "24px",
+            "space-lg": "16px",
+            "margin": "20px",
+            "space-sm": "8px",
+            "gutter": "16px",
+            "space-md": "12px",
+            "space-2xl": "32px"
+          },
+          fontFamily: {
+            label: ["Inter", "sans-serif"],
+            display: ["Sora", "sans-serif"],
+            caption: ["Inter", "sans-serif"],
+            body: ["Inter", "sans-serif"],
+            title: ["Sora", "sans-serif"]
+          },
+          fontSize: {
+            label: ["14px", { lineHeight: "20px", fontWeight: "500" }],
+            display: ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            caption: ["13px", { lineHeight: "18px", fontWeight: "500" }],
+            body: ["16px", { lineHeight: "24px", fontWeight: "400" }],
+            title: ["20px", { lineHeight: "28px", fontWeight: "600" }]
+          },
+          boxShadow: {
+            'herd-card': '0 1px 2px rgba(12,19,31,.04), 0 8px 24px rgba(12,19,31,.06)'
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+</head>
+<body class="bg-background text-text-primary min-h-screen flex justify-center antialiased select-none font-body">
+<!-- Mobile Frame (393px × 852px Canvas representation) -->
+<div class="w-full max-w-[393px] min-h-screen bg-background flex flex-col justify-between relative shadow-2xl overflow-x-hidden pb-[84px]">
+<!-- Status Bar Spacer (Simulated iOS Status Bar area) -->
+<div class="h-11 w-full flex justify-between items-center px-6 pt-3 text-text-primary text-[14px] font-semibold">
+<span>9:41</span>
+<div class="flex items-center space-x-1.5">
+<span class="material-symbols-outlined text-[17px] leading-none" data-icon="signal_cellular_alt">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[17px] leading-none" data-icon="wifi_off">wifi_off</span>
+<span class="material-symbols-outlined text-[19px] leading-none" data-icon="battery_full">battery_full</span>
+</div>
+</div>
+<!-- Main Content Container -->
+<div class="flex-1 flex flex-col px-5 pt-2 pb-6">
+<!-- Top App Bar -->
+<header class="flex justify-between items-center w-full py-3 mb-3">
+<h1 class="font-title text-title text-text-primary tracking-tight">Dashboard</h1>
+<!-- Offline Sync Indicator Chip -->
+<div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-accentTint text-accentFill font-caption text-caption">
+<span class="material-symbols-outlined text-[16px] text-accentFill" data-icon="cloud_off">cloud_off</span>
+<span>Offline - saved on device</span>
+</div>
+</header>
+<!-- Centered Main Empty State Hero Card -->
+<div class="w-full bg-surface rounded-[20px] p-4 shadow-herd-card border border-border/40 flex flex-col mb-4 transition-all">
+<!-- Hero Photography Image -->
+<div class="w-full aspect-[16/9] rounded-[14px] overflow-hidden bg-surfaceAlt relative mb-4">
+<img alt="Clean empty dairy barn stall with golden straw bedding and soft natural morning light streaming through windows" class="w-full h-full object-cover object-center" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBc8haZTTs6fKA9bXarB73BuUJYuXj0Y_I6xvL7YIBg2U-6y63MhrTRuSO6bT78f0iXIJ-5UAuzY2zikJXjIXzDalE8NzObPSL-9AMPyCD7GZbG7xp718bIuPA9QfIe4A3UvyQlczFrY7g0K7QV2EpFaN4PJKBntjhxHV5-XRdWbAukIXkortbyL2zvEohT7gsrXGUiVb5KnjL3AfyOJgjhipL297BmsknkElxYgozbxx04RkhxZMd8AcPTOczWnbu7t71SIIfoqJ3-4w"/>
+</div>
+<!-- Card Content -->
+<div class="flex flex-col">
+<h2 class="font-title text-title text-text-primary mb-1">
+            Your herd starts here
+          </h2>
+<p class="font-body text-body text-text-secondary text-[15px] leading-snug mb-5">
+            Register your first animal or load the sample herd to explore Herdline.
+          </p>
+<!-- Action Buttons -->
+<div class="flex flex-col gap-2.5 w-full">
+<!-- Primary Action -->
+<button class="w-full h-[52px] rounded-full bg-accentFill active:bg-accentPressed hover:opacity-95 text-on-primary font-label text-label flex items-center justify-center gap-2 transition-transform active:scale-[0.98] shadow-sm">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+<span>Register first animal</span>
+</button>
+<!-- Secondary Action -->
+<button class="w-full h-[52px] rounded-full bg-surface border-[1.5px] border-accentFill active:bg-surfaceAlt text-accentFill font-label text-label flex items-center justify-center transition-transform active:scale-[0.98]">
+<span>Load sample herd</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Quick Metrics Placeholder Grid -->
+<div class="grid grid-cols-3 gap-2.5 w-full">
+<!-- Stat Card 1: Cows in milk -->
+<div class="bg-surface rounded-[16px] p-3 border border-border flex flex-col justify-between h-[84px] shadow-sm">
+<div class="flex items-center justify-between w-full">
+<span class="font-caption text-[12px] leading-tight text-text-tertiary">Cows in milk</span>
+<span class="material-symbols-outlined text-[15px] text-text-tertiary opacity-75" data-icon="water_drop">water_drop</span>
+</div>
+<span class="font-title text-[24px] font-bold leading-tight text-text-tertiary">0</span>
+</div>
+<!-- Stat Card 2: Pregnant -->
+<div class="bg-surface rounded-[16px] p-3 border border-border flex flex-col justify-between h-[84px] shadow-sm">
+<div class="flex items-center justify-between w-full">
+<span class="font-caption text-[12px] leading-tight text-text-tertiary">Pregnant</span>
+<span class="material-symbols-outlined text-[15px] text-text-tertiary opacity-75" data-icon="favorite">favorite</span>
+</div>
+<span class="font-title text-[24px] font-bold leading-tight text-text-tertiary">0</span>
+</div>
+<!-- Stat Card 3: Heifers -->
+<div class="bg-surface rounded-[16px] p-3 border border-border flex flex-col justify-between h-[84px] shadow-sm">
+<div class="flex items-center justify-between w-full">
+<span class="font-caption text-[12px] leading-tight text-text-tertiary">Heifers</span>
+<span class="material-symbols-outlined text-[15px] text-text-tertiary opacity-75" data-icon="sell">sell</span>
+</div>
+<span class="font-title text-[24px] font-bold leading-tight text-text-tertiary">0</span>
+</div>
+</div>
+</div>
+<!-- Fixed Bottom Tab Bar -->
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[393px] bg-surface border-t border-border z-30 px-3 pt-2 pb-5 flex justify-between items-center">
+<!-- Tab 1: Dashboard (Active) -->
+<a class="flex flex-col items-center justify-center flex-1 py-1 group" href="#dashboard">
+<div class="px-4 py-1 rounded-full bg-accentTint flex items-center justify-center transition-colors">
+<span class="material-symbols-outlined text-accentFill text-[20px]" data-icon="dashboard">dashboard</span>
+</div>
+<span class="font-label text-[12px] font-semibold text-accentFill mt-0.5">Dashboard</span>
+</a>
+<!-- Tab 2: Herd (Inactive) -->
+<a class="flex flex-col items-center justify-center flex-1 py-1 group" href="#herd">
+<div class="px-4 py-1 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-text-tertiary text-[20px]" data-icon="format_list_bulleted">format_list_bulleted</span>
+</div>
+<span class="font-label text-[12px] font-medium text-text-tertiary mt-0.5">Herd</span>
+</a>
+<!-- Tab 3: Milk (Inactive) -->
+<a class="flex flex-col items-center justify-center flex-1 py-1 group" href="#milk">
+<div class="px-4 py-1 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-text-tertiary text-[20px]" data-icon="water_drop">water_drop</span>
+</div>
+<span class="font-label text-[12px] font-medium text-text-tertiary mt-0.5">Milk</span>
+</a>
+<!-- Tab 4: Breeding (Inactive) -->
+<a class="flex flex-col items-center justify-center flex-1 py-1 group" href="#breeding">
+<div class="px-4 py-1 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-text-tertiary text-[20px]" data-icon="favorite">favorite</span>
+</div>
+<span class="font-label text-[12px] font-medium text-text-tertiary mt-0.5">Breeding</span>
+</a>
+<!-- Tab 5: Reports (Inactive) -->
+<a class="flex flex-col items-center justify-center flex-1 py-1 group" href="#reports">
+<div class="px-4 py-1 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-text-tertiary text-[20px]" data-icon="bar_chart">bar_chart</span>
+</div>
+<span class="font-label text-[12px] font-medium text-text-tertiary mt-0.5">Reports</span>
+</a>
+</nav>
+<!-- iOS Home Indicator -->
+<div class="fixed bottom-1 left-1/2 -translate-x-1/2 w-32 h-1 bg-on-background/20 rounded-full z-40 pointer-events-none"></div>
+</div>
+</body></html>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register Animal - Herdline</title>
+  <!-- Google Fonts: Inter & Sora -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bg: '#F4F7FC',
+            surface: '#FFFFFF',
+            surfaceAlt: '#F4F7FC',
+            accent: '#2B7BFF',
+            accentFill: '#1B65DA',
+            accentTint: '#E3EEFF',
+            accentPressed: '#2262CA',
+            support: '#4ADE80',
+            supportStrong: '#1EAA52',
+            textPrimary: '#0C131F',
+            textSecondary: '#4A5568',
+            textTertiary: '#677283',
+            borderDefault: '#DCE3EE',
+            borderStrong: '#8B92B8',
+            danger: '#CE2020',
+            dangerBg: '#FBE5E5',
+            warning: '#A75906',
+            warningBg: '#FAEFE1',
+            info: '#1B65DA',
+            infoBg: '#E4EDFB',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Sora', 'sans-serif'],
+          },
+          boxShadow: {
+            card: '0 1px 2px rgba(12,19,31,0.04), 0 8px 24px rgba(12,19,31,0.06)',
+            sticky: '0 -4px 16px rgba(12,19,31,0.05)',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #F4F7FC;
+      color: #0C131F;
+      -webkit-font-smoothing: antialiased;
+    }
+    .font-sora {
+      font-family: 'Sora', sans-serif;
+    }
+    /* Hide scrollbars but keep scrolling */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-[#F4F7FC] flex justify-center min-h-screen text-[#0C131F] selection:bg-[#E3EEFF] selection:text-[#1B65DA]">
+
+  <!-- Mobile Device Frame Container (393px max-width) -->
+  <div class="w-full max-w-[393px] min-h-screen bg-[#F4F7FC] flex flex-col relative pb-32">
+    
+    <!-- Status Bar (Safe Area Spacer) -->
+    <div class="w-full h-12 pt-3 px-6 flex justify-between items-center text-xs font-semibold text-[#0C131F] select-none">
+      <span>09:41</span>
+      <div class="flex items-center space-x-1.5">
+        <i data-lucide="signal" class="w-3.5 h-3.5 stroke-[1.75]"></i>
+        <i data-lucide="wifi" class="w-3.5 h-3.5 stroke-[1.75]"></i>
+        <i data-lucide="battery" class="w-4 h-4 stroke-[1.75]"></i>
+      </div>
+    </div>
+
+    <!-- Top App Bar / Header -->
+    <header class="w-full px-5 py-3 flex items-center justify-between sticky top-0 bg-[#F4F7FC]/90 backdrop-blur-md z-30 border-b border-[#DCE3EE]/60">
+      <div class="flex items-center gap-3">
+        <button type="button" aria-label="Close" class="w-10 h-10 rounded-full flex items-center justify-center hover:bg-[#E3EEFF] transition-colors active:scale-95 text-[#0C131F]">
+          <i data-lucide="x" class="w-6 h-6 stroke-[1.75]"></i>
+        </button>
+        <h1 class="font-sora text-[20px] font-semibold text-[#0C131F] tracking-tight">Register animal</h1>
+      </div>
+      <div class="text-[13px] font-medium text-[#677283]">
+        Draft saved
+      </div>
+    </header>
+
+    <!-- Main Content Form -->
+    <main class="flex-1 px-5 pt-4 space-y-6">
+
+      <!-- Photo Upload Slot -->
+      <section class="flex flex-col items-center">
+        <div class="w-28 h-28 rounded-2xl border-2 border-dashed border-[#8B92B8] bg-white flex flex-col items-center justify-center gap-2 cursor-pointer hover:border-[#1B65DA] hover:bg-[#E3EEFF]/30 transition-all active:scale-95 shadow-sm group">
+          <div class="w-10 h-10 rounded-full bg-[#F4F7FC] group-hover:bg-[#E3EEFF] flex items-center justify-center text-[#1B65DA] transition-colors">
+            <i data-lucide="camera" class="w-5 h-5 stroke-[1.75]"></i>
+          </div>
+          <span class="text-[13px] font-medium text-[#4A5568] group-hover:text-[#1B65DA] transition-colors">Add photo</span>
+        </div>
+        <p class="text-[12px] text-[#677283] mt-2 font-normal">Optional barn profile picture</p>
+      </section>
+
+      <!-- Form Card: Identification -->
+      <section class="bg-white rounded-[20px] p-4 shadow-[0_1px_2px_rgba(12,19,31,0.04),0_8px_24px_rgba(12,19,31,0.06)] space-y-4">
+        <h2 class="font-sora text-[15px] font-semibold text-[#0C131F] flex items-center gap-1.5 pb-1 border-b border-[#DCE3EE]">
+          <i data-lucide="tag" class="w-4 h-4 text-[#1B65DA] stroke-[1.75]"></i>
+          Identification
+        </h2>
+
+        <!-- Field: Ear Tag (Required - ERROR STATE) -->
+        <div class="space-y-1.5">
+          <div class="flex justify-between items-center">
+            <label for="ear-tag" class="block text-[13px] font-medium text-[#4A5568]">
+              Ear tag <span class="text-[#CE2020]">*</span>
+            </label>
+            <span class="text-[12px] font-medium text-[#CE2020] flex items-center gap-1">
+              <i data-lucide="alert-circle" class="w-3.5 h-3.5 stroke-[1.75]"></i>
+              Duplicate tag
+            </span>
+          </div>
+          <div class="relative">
+            <input 
+              type="text" 
+              id="ear-tag" 
+              name="earTag" 
+              value="NL 0482" 
+              aria-invalid="true"
+              aria-describedby="ear-tag-error"
+              class="w-full h-12 px-3.5 rounded-[12px] bg-white border-2 border-[#CE2020] text-[#0C131F] text-[15px] font-medium focus:outline-none focus:ring-2 focus:ring-[#CE2020]/20 transition-all pr-10"
+            />
+            <div class="absolute right-3 top-1/2 -translate-y-1/2 text-[#CE2020]">
+              <i data-lucide="alert-circle" class="w-5 h-5 stroke-[1.75]"></i>
+            </div>
+          </div>
+          <p id="ear-tag-error" class="text-[13px] text-[#CE2020] font-medium flex items-center gap-1 mt-1">
+            Tag NL 0482 is already in use
+          </p>
+        </div>
+
+        <!-- Field: Name -->
+        <div class="space-y-1.5">
+          <label for="animal-name" class="block text-[13px] font-medium text-[#4A5568]">
+            Name
+          </label>
+          <input 
+            type="text" 
+            id="animal-name" 
+            name="name" 
+            value="Poppy" 
+            class="w-full h-12 px-3.5 rounded-[12px] bg-white border border-[#8B92B8] text-[#0C131F] text-[15px] focus:outline-none focus:border-[#2B7BFF] focus:ring-2 focus:ring-[#2B7BFF]/20 transition-all placeholder-[#677283]"
+            placeholder="e.g. Poppy"
+          />
+        </div>
+      </section>
+
+      <!-- Form Card: Biological Profile -->
+      <section class="bg-white rounded-[20px] p-4 shadow-[0_1px_2px_rgba(12,19,31,0.04),0_8px_24px_rgba(12,19,31,0.06)] space-y-4">
+        <h2 class="font-sora text-[15px] font-semibold text-[#0C131F] flex items-center gap-1.5 pb-1 border-b border-[#DCE3EE]">
+          <i data-lucide="dna" class="w-4 h-4 text-[#1B65DA] stroke-[1.75]"></i>
+          Biological & Group
+        </h2>
+
+        <!-- Field: Breed Dropdown -->
+        <div class="space-y-1.5">
+          <label for="breed-select" class="block text-[13px] font-medium text-[#4A5568]">
+            Breed
+          </label>
+          <div class="relative">
+            <select 
+              id="breed-select" 
+              name="breed"
+              class="w-full h-12 px-3.5 rounded-[12px] bg-white border border-[#8B92B8] text-[#0C131F] text-[15px] appearance-none focus:outline-none focus:border-[#2B7BFF] focus:ring-2 focus:ring-[#2B7BFF]/20 transition-all pr-10 cursor-pointer"
+            >
+              <option value="Holstein" selected>Holstein</option>
+              <option value="Jersey">Jersey</option>
+              <option value="Guernsey">Guernsey</option>
+              <option value="Ayrshire">Ayrshire</option>
+              <option value="Brown Swiss">Brown Swiss</option>
+            </select>
+            <div class="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-[#677283]">
+              <i data-lucide="chevron-down" class="w-5 h-5 stroke-[1.75]"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Field: Sex Segmented Control -->
+        <div class="space-y-1.5">
+          <label class="block text-[13px] font-medium text-[#4A5568]">
+            Sex
+          </label>
+          <div class="grid grid-cols-2 p-1 bg-[#F4F7FC] rounded-[14px] border border-[#DCE3EE]">
+            <!-- Female (Selected #1B65DA) -->
+            <button 
+              type="button" 
+              class="h-11 rounded-[10px] bg-[#1B65DA] text-white text-[14px] font-medium flex items-center justify-center gap-2 shadow-sm transition-all"
+            >
+              <i data-lucide="venus" class="w-4 h-4 stroke-[2]"></i>
+              <span>Female</span>
+            </button>
+            <!-- Male (Unselected) -->
+            <button 
+              type="button" 
+              class="h-11 rounded-[10px] text-[#4A5568] hover:text-[#0C131F] text-[14px] font-medium flex items-center justify-center gap-2 transition-all hover:bg-white/50"
+            >
+              <i data-lucide="mars" class="w-4 h-4 stroke-[1.75]"></i>
+              <span>Male</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Field: Date of Birth with Calendar Icon -->
+        <div class="space-y-1.5">
+          <label for="dob-input" class="block text-[13px] font-medium text-[#4A5568]">
+            Date of birth
+          </label>
+          <div class="relative">
+            <input 
+              type="text" 
+              id="dob-input" 
+              name="dob" 
+              value="04 Feb 2025" 
+              class="w-full h-12 px-3.5 rounded-[12px] bg-white border border-[#8B92B8] text-[#0C131F] text-[15px] focus:outline-none focus:border-[#2B7BFF] focus:ring-2 focus:ring-[#2B7BFF]/20 transition-all pr-11"
+            />
+            <div class="absolute right-3.5 top-1/2 -translate-y-1/2 text-[#1B65DA] pointer-events-none">
+              <i data-lucide="calendar" class="w-5 h-5 stroke-[1.75]"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Field: Group Dropdown -->
+        <div class="space-y-1.5">
+          <label for="group-select" class="block text-[13px] font-medium text-[#4A5568]">
+            Group
+          </label>
+          <div class="relative">
+            <select 
+              id="group-select" 
+              name="group"
+              class="w-full h-12 px-3.5 rounded-[12px] bg-white border border-[#8B92B8] text-[#0C131F] text-[15px] appearance-none focus:outline-none focus:border-[#2B7BFF] focus:ring-2 focus:ring-[#2B7BFF]/20 transition-all pr-10 cursor-pointer"
+            >
+              <option value="Heifers" selected>Heifers</option>
+              <option value="Milking herd">Milking herd</option>
+              <option value="Dry cows">Dry cows</option>
+              <option value="Calves">Calves</option>
+              <option value="Quarantine">Quarantine</option>
+            </select>
+            <div class="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-[#677283]">
+              <i data-lucide="chevron-down" class="w-5 h-5 stroke-[1.75]"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Form Card: Lineage / Pedigree -->
+      <section class="bg-white rounded-[20px] p-4 shadow-[0_1px_2px_rgba(12,19,31,0.04),0_8px_24px_rgba(12,19,31,0.06)] space-y-4">
+        <h2 class="font-sora text-[15px] font-semibold text-[#0C131F] flex items-center gap-1.5 pb-1 border-b border-[#DCE3EE]">
+          <i data-lucide="git-merge" class="w-4 h-4 text-[#1B65DA] stroke-[1.75]"></i>
+          Pedigree & Lineage
+        </h2>
+
+        <!-- Field: Sire Dropdown -->
+        <div class="space-y-1.5">
+          <label for="sire-select" class="block text-[13px] font-medium text-[#4A5568]">
+            Sire
+          </label>
+          <div class="relative">
+            <select 
+              id="sire-select" 
+              name="sire"
+              class="w-full h-12 px-3.5 rounded-[12px] bg-white border border-[#8B92B8] text-[#0C131F] text-[15px] appearance-none focus:outline-none focus:border-[#2B7BFF] focus:ring-2 focus:ring-[#2B7BFF]/20 transition-all pr-10 cursor-pointer"
+            >
+              <option value="Bolt - NL 0021" selected>Bolt - NL 0021</option>
+              <option value="Titan - NL 0019">Titan - NL 0019</option>
+              <option value="Atlas - NL 0045">Atlas - NL 0045</option>
+              <option value="Unknown">Unknown sire</option>
+            </select>
+            <div class="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-[#677283]">
+              <i data-lucide="chevron-down" class="w-5 h-5 stroke-[1.75]"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Field: Dam Dropdown -->
+        <div class="space-y-1.5">
+          <label for="dam-select" class="block text-[13px] font-medium text-[#4A5568]">
+            Dam
+          </label>
+          <div class="relative">
+            <select 
+              id="dam-select" 
+              name="dam"
+              class="w-full h-12 px-3.5 rounded-[12px] bg-white border border-[#8B92B8] text-[#0C131F] text-[15px] appearance-none focus:outline-none focus:border-[#2B7BFF] focus:ring-2 focus:ring-[#2B7BFF]/20 transition-all pr-10 cursor-pointer"
+            >
+              <option value="Bella - NL 0482" selected>Bella - NL 0482</option>
+              <option value="Daisy - NL 0517">Daisy - NL 0517</option>
+              <option value="Rosie - NL 0390">Rosie - NL 0390</option>
+              <option value="Clover - NL 0611">Clover - NL 0611</option>
+            </select>
+            <div class="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-[#677283]">
+              <i data-lucide="chevron-down" class="w-5 h-5 stroke-[1.75]"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Offline Notice Pill -->
+      <div class="flex items-center justify-center gap-1.5 py-1 text-center">
+        <i data-lucide="shield-check" class="w-4 h-4 text-[#1B65DA] stroke-[1.75]"></i>
+        <span class="text-[13px] font-medium text-[#4A5568]">Record will be stored locally on device</span>
+      </div>
+
+    </main>
+
+    <!-- Sticky Bottom Bar with Primary Action (No Tab Bar) -->
+    <footer class="fixed bottom-0 left-0 right-0 max-w-[393px] mx-auto bg-white/95 backdrop-blur-md border-t border-[#DCE3EE] px-5 py-4 z-40 shadow-[0_-4px_16px_rgba(12,19,31,0.06)]">
+      <button 
+        type="button" 
+        class="w-full h-[52px] rounded-full bg-[#1B65DA] hover:bg-[#2262CA] active:bg-[#2262CA] active:scale-[0.99] text-white font-medium text-[14px] flex items-center justify-center gap-2 transition-all shadow-md"
+      >
+        <i data-lucide="check" class="w-5 h-5 stroke-[2]"></i>
+        <span>Save animal</span>
+      </button>
+      <!-- Safe Area Home Indicator -->
+      <div class="w-32 h-1 bg-[#0C131F]/20 rounded-full mx-auto mt-3"></div>
+    </footer>
+
+  </div>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+  </script>
+</body>
+</html>

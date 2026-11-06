@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Herdline - Herd List</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Sora:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-primary-container": "#fefcff",
+            "background": "#F4F7FC",
+            "accentTint": "#E3EEFF",
+            "secondary-fixed": "#d9e2ff",
+            "tertiary-fixed": "#ffdbcb",
+            "secondary": "#0056c5",
+            "surface-container-low": "#f2f3fe",
+            "surface-container-lowest": "#ffffff",
+            "primary-container": "#0e6ef2",
+            "secondary-container": "#2c6fe4",
+            "outline-variant": "#c2c6d7",
+            "on-primary-fixed-variant": "#00429a",
+            "inverse-on-surface": "#eff0fb",
+            "accentFill": "#1B65DA",
+            "surface-container-highest": "#e1e2ed",
+            "inverse-primary": "#afc6ff",
+            "on-tertiary-container": "#fffbff",
+            "on-secondary-container": "#fefcff",
+            "on-tertiary-fixed-variant": "#783100",
+            "on-secondary-fixed": "#001944",
+            "on-secondary-fixed-variant": "#00429a",
+            "surface-variant": "#e1e2ed",
+            "warning-bg": "#FAEFE1",
+            "border": "#DCE3EE",
+            "on-tertiary-fixed": "#341100",
+            "info-text": "#1B65DA",
+            "error-container": "#ffdad6",
+            "borderStrong": "#8B92B8",
+            "warning-text": "#A75906",
+            "primary-fixed-dim": "#afc6ff",
+            "success-bg": "#E3F4E9",
+            "on-background": "#191b23",
+            "danger-bg": "#FBE5E5",
+            "accent": "#2B7BFF",
+            "text-primary": "#0C131F",
+            "error": "#ba1a1a",
+            "surface-dim": "#d8d9e4",
+            "surfaceAlt": "#F4F7FC",
+            "tertiary": "#9a4100",
+            "support": "#4ADE80",
+            "info-bg": "#E4EDFB",
+            "text-secondary": "#4A5568",
+            "primary-fixed": "#d9e2ff",
+            "on-tertiary": "#ffffff",
+            "primary": "#0056c4",
+            "on-error": "#ffffff",
+            "supportStrong": "#1EAA52",
+            "accentPressed": "#2262CA",
+            "success-text": "#0E7C3A",
+            "outline": "#727786",
+            "on-error-container": "#93000a",
+            "secondary-fixed-dim": "#b0c6ff",
+            "surface-bright": "#faf8ff",
+            "on-primary": "#ffffff",
+            "text-tertiary": "#677283",
+            "surface-container-high": "#e6e7f3",
+            "surface-container": "#ecedf8",
+            "on-surface-variant": "#424754",
+            "on-secondary": "#ffffff",
+            "surface": "#FFFFFF",
+            "on-surface": "#191b23",
+            "inverse-surface": "#2d3039",
+            "danger-text": "#CE2020",
+            "surface-tint": "#0058c8",
+            "tertiary-fixed-dim": "#ffb690",
+            "on-primary-fixed": "#001944",
+            "tertiary-container": "#c15400"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "20": "20px",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "4px",
+            "space-sm": "8px",
+            "space-lg": "16px",
+            "space-xl": "24px",
+            "margin": "20px",
+            "gutter": "16px",
+            "space-md": "12px",
+            "space-2xl": "32px"
+          },
+          "fontFamily": {
+            "title": ["Sora", "sans-serif"],
+            "display": ["Sora", "sans-serif"],
+            "caption": ["Inter", "sans-serif"],
+            "body": ["Inter", "sans-serif"],
+            "label": ["Inter", "sans-serif"]
+          },
+          "fontSize": {
+            "title": [
+              "20px",
+              {
+                "lineHeight": "28px",
+                "fontWeight": "600"
+              }
+            ],
+            "display": [
+              "32px",
+              {
+                "lineHeight": "40px",
+                "letterSpacing": "-0.02em",
+                "fontWeight": "700"
+              }
+            ],
+            "caption": [
+              "13px",
+              {
+                "lineHeight": "18px",
+                "fontWeight": "500"
+              }
+            ],
+            "body": [
+              "16px",
+              {
+                "lineHeight": "24px",
+                "fontWeight": "400"
+              }
+            ],
+            "label": [
+              "14px",
+              {
+                "lineHeight": "20px",
+                "fontWeight": "500"
+              }
+            ]
+          },
+          "boxShadow": {
+            "card": "0 1px 2px rgba(12, 19, 31, 0.04), 0 8px 24px rgba(12, 19, 31, 0.06)",
+            "fab": "0 4px 12px rgba(27, 101, 218, 0.3)"
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      font-size: 20px;
+    }
+    .material-symbols-outlined.fill {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-background text-text-primary antialiased flex justify-center min-h-screen">
+<!-- Target Mobile Viewport (393px width constraint) -->
+<div class="w-full max-w-[393px] bg-background min-h-screen relative flex flex-col pb-[100px]">
+<!-- Top App Bar / Header -->
+<header class="sticky top-0 z-30 bg-surface/95 backdrop-blur-md px-5 py-3 h-14 flex justify-between items-center shadow-sm">
+<div class="flex items-center gap-2">
+<h1 class="font-title text-title text-text-primary">Herd</h1>
+<span class="font-caption text-caption text-text-secondary mt-0.5">247 animals</span>
+</div>
+<!-- Offline Status Pill -->
+<div class="flex items-center gap-1.5 bg-accentTint px-3 py-1 rounded-full">
+<span class="material-symbols-outlined text-info-text text-[16px] leading-none" data-icon="cloud_off">cloud_off</span>
+<span class="font-caption text-caption text-info-text tracking-tight">Offline - saved on device</span>
+</div>
+</header>
+<!-- Search Section -->
+<div class="px-5 pt-4 pb-3">
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-text-tertiary pointer-events-none" data-icon="search">search</span>
+<input class="w-full h-11 bg-surface pl-11 pr-4 rounded-xl border border-borderStrong text-text-primary placeholder:text-text-tertiary font-body text-label focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors" placeholder="Search tag, name or group" type="text"/>
+</div>
+</div>
+<!-- Filter Chips (Horizontal Scrollable) -->
+<div class="px-5 pb-3">
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5">
+<!-- Active Filter -->
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full bg-accentFill text-surface font-caption text-caption shadow-sm shrink-0 active:scale-95 transition-transform">
+          All 247
+        </button>
+<!-- Inactive Filters -->
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full bg-surface border border-border text-text-secondary font-caption text-caption shrink-0 hover:bg-surface-container-low active:scale-95 transition-transform">
+          Milking 182
+        </button>
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full bg-surface border border-border text-text-secondary font-caption text-caption shrink-0 hover:bg-surface-container-low active:scale-95 transition-transform">
+          Dry 24
+        </button>
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full bg-surface border border-border text-text-secondary font-caption text-caption shrink-0 hover:bg-surface-container-low active:scale-95 transition-transform">
+          Heifers 41
+        </button>
+<button class="whitespace-nowrap px-4 py-1.5 rounded-full bg-surface border border-border text-text-secondary font-caption text-caption shrink-0 hover:bg-surface-container-low active:scale-95 transition-transform">
+          Bulls 3
+        </button>
+</div>
+</div>
+<!-- Animal List -->
+<main class="px-5 flex flex-col gap-3">
+<!-- 1. Bella -->
+<article class="bg-surface rounded-20 p-4 shadow-card flex items-center justify-between active:scale-[0.99] transition-transform cursor-pointer">
+<div class="flex items-center gap-3.5">
+<img alt="Cow Bella portrait" class="w-14 h-14 rounded-2xl object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSfxbPalPJusYlH5bWu1kuw4VdnJS_a6sdIOh0Qt0h3jAlRQWcQiD2ghnTMSAHE98PuTt-Jym6gKyEYG99kvASVZoVHy_rgdzrwOirLZfO_Qo-pPvTvtxPXhHgOlzTt6ornsA_oUNIDOaJRQOlpqtnp9wONgjZ30E-i5iDvg5jRFr_IbTqucbGuv6oUANVhuICYBdSWYVEm5Ea2DsCRi0a6UntUiC6vZxko7wCXL7XItpMr3GcZA0VAd9awNYLve_6hqHibvOCZBq4qg"/>
+<div class="flex flex-col">
+<h2 class="font-body text-body font-semibold text-text-primary">Bella</h2>
+<p class="font-caption text-caption text-text-secondary">NL 0482 · Holstein · Pen 2</p>
+</div>
+</div>
+<span class="px-3 py-1 rounded-full bg-info-bg text-info-text font-caption text-caption shrink-0 font-medium">
+          Milking
+        </span>
+</article>
+<!-- 2. Daisy -->
+<article class="bg-surface rounded-20 p-4 shadow-card flex items-center justify-between active:scale-[0.99] transition-transform cursor-pointer">
+<div class="flex items-center gap-3.5">
+<img alt="Cow Daisy portrait" class="w-14 h-14 rounded-2xl object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSfxbPalPJusYlH5bWu1kuw4VdnJS_a6sdIOh0Qt0h3jAlRQWcQiD2ghnTMSAHE98PuTt-Jym6gKyEYG99kvASVZoVHy_rgdzrwOirLZfO_Qo-pPvTvtxPXhHgOlzTt6ornsA_oUNIDOaJRQOlpqtnp9wONgjZ30E-i5iDvg5jRFr_IbTqucbGuv6oUANVhuICYBdSWYVEm5Ea2DsCRi0a6UntUiC6vZxko7wCXL7XItpMr3GcZA0VAd9awNYLve_6hqHibvOCZBq4qg"/>
+<div class="flex flex-col">
+<h2 class="font-body text-body font-semibold text-text-primary">Daisy</h2>
+<p class="font-caption text-caption text-text-secondary">NL 0517 · Holstein · Pen 2</p>
+</div>
+</div>
+<span class="px-3 py-1 rounded-full bg-info-bg text-info-text font-caption text-caption shrink-0 font-medium">
+          Milking
+        </span>
+</article>
+<!-- 3. Rosie -->
+<article class="bg-surface rounded-20 p-4 shadow-card flex items-center justify-between active:scale-[0.99] transition-transform cursor-pointer">
+<div class="flex items-center gap-3.5">
+<img alt="Cow Rosie portrait" class="w-14 h-14 rounded-2xl object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSfxbPalPJusYlH5bWu1kuw4VdnJS_a6sdIOh0Qt0h3jAlRQWcQiD2ghnTMSAHE98PuTt-Jym6gKyEYG99kvASVZoVHy_rgdzrwOirLZfO_Qo-pPvTvtxPXhHgOlzTt6ornsA_oUNIDOaJRQOlpqtnp9wONgjZ30E-i5iDvg5jRFr_IbTqucbGuv6oUANVhuICYBdSWYVEm5Ea2DsCRi0a6UntUiC6vZxko7wCXL7XItpMr3GcZA0VAd9awNYLve_6hqHibvOCZBq4qg"/>
+<div class="flex flex-col">
+<h2 class="font-body text-body font-semibold text-text-primary">Rosie</h2>
+<p class="font-caption text-caption text-text-secondary">NL 0390 · Holstein · Pen 1</p>
+</div>
+</div>
+<span class="px-3 py-1 rounded-full bg-warning-bg text-warning-text font-caption text-caption shrink-0 font-medium">
+          Treatment
+        </span>
+</article>
+<!-- 4. Clover -->
+<article class="bg-surface rounded-20 p-4 shadow-card flex items-center justify-between active:scale-[0.99] transition-transform cursor-pointer">
+<div class="flex items-center gap-3.5">
+<img alt="Cow Clover portrait" class="w-14 h-14 rounded-2xl object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXbVwOxLDCeo0VT_-l-FYe4_ZY9jeAIOZUs4sI10-cQw1hyQpWLHfZ5uvZ6TY2yLDs4u1kqWXP1bKO6pjFcFMMtRhAuBRxXryf7le4b2arRkf32z9v7Appid0rSe6lIEJ3O1ESK365k6y8JLIEHd9HdunTj_Fhj2LmIexAaCL-7sLQ4TFJa16ghpQAoNjwXU4VjJEMcKVZVGlBLsPX_wOIkcdVhCJ-BrmElFITyx7KqAw12zgZe-JCsuIqKAP-LhIA89DbO0vDCwxKiA"/>
+<div class="flex flex-col">
+<h2 class="font-body text-body font-semibold text-text-primary">Clover</h2>
+<p class="font-caption text-caption text-text-secondary">NL 0611 · Jersey · Dry pen</p>
+</div>
+</div>
+<span class="px-3 py-1 rounded-full bg-surfaceAlt text-text-tertiary font-caption text-caption shrink-0 font-medium border border-border">
+          Dry
+        </span>
+</article>
+<!-- 5. Maple -->
+<article class="bg-surface rounded-20 p-4 shadow-card flex items-center justify-between active:scale-[0.99] transition-transform cursor-pointer">
+<div class="flex items-center gap-3.5">
+<img alt="Cow Maple portrait" class="w-14 h-14 rounded-2xl object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSfxbPalPJusYlH5bWu1kuw4VdnJS_a6sdIOh0Qt0h3jAlRQWcQiD2ghnTMSAHE98PuTt-Jym6gKyEYG99kvASVZoVHy_rgdzrwOirLZfO_Qo-pPvTvtxPXhHgOlzTt6ornsA_oUNIDOaJRQOlpqtnp9wONgjZ30E-i5iDvg5jRFr_IbTqucbGuv6oUANVhuICYBdSWYVEm5Ea2DsCRi0a6UntUiC6vZxko7wCXL7XItpMr3GcZA0VAd9awNYLve_6hqHibvOCZBq4qg"/>
+<div class="flex flex-col">
+<h2 class="font-body text-body font-semibold text-text-primary">Maple</h2>
+<p class="font-caption text-caption text-text-secondary">NL 0702 · Holstein · Pen 3</p>
+</div>
+</div>
+<span class="px-3 py-1 rounded-full bg-success-bg text-success-text font-caption text-caption shrink-0 font-medium">
+          Pregnant
+        </span>
+</article>
+<!-- 6. Hazel -->
+<article class="bg-surface rounded-20 p-4 shadow-card flex items-center justify-between active:scale-[0.99] transition-transform cursor-pointer">
+<div class="flex items-center gap-3.5">
+<img alt="Cow Hazel portrait" class="w-14 h-14 rounded-2xl object-cover shrink-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXbVwOxLDCeo0VT_-l-FYe4_ZY9jeAIOZUs4sI10-cQw1hyQpWLHfZ5uvZ6TY2yLDs4u1kqWXP1bKO6pjFcFMMtRhAuBRxXryf7le4b2arRkf32z9v7Appid0rSe6lIEJ3O1ESK365k6y8JLIEHd9HdunTj_Fhj2LmIexAaCL-7sLQ4TFJa16ghpQAoNjwXU4VjJEMcKVZVGlBLsPX_wOIkcdVhCJ-BrmElFITyx7KqAw12zgZe-JCsuIqKAP-LhIA89DbO0vDCwxKiA"/>
+<div class="flex flex-col">
+<h2 class="font-body text-body font-semibold text-text-primary">Hazel</h2>
+<p class="font-caption text-caption text-text-secondary">NL 0733 · Jersey · Pen 3</p>
+</div>
+</div>
+<span class="px-3 py-1 rounded-full bg-info-bg text-info-text font-caption text-caption shrink-0 font-medium">
+          Milking
+        </span>
+</article>
+</main>
+<!-- Floating Action Button (FAB) -->
+<div class="fixed bottom-20 right-5 z-40 max-w-[393px]">
+<button class="h-[52px] px-5 rounded-full bg-accentFill text-surface font-label text-label font-medium shadow-fab flex items-center gap-2 active:bg-accentPressed transition-colors">
+<span class="material-symbols-outlined text-[20px]" data-icon="add">add</span>
+<span>Add animal</span>
+</button>
+</div>
+<!-- Bottom Tab Bar -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 flex justify-center pointer-events-none">
+<div class="w-full max-w-[393px] bg-surface h-16 border-t border-border flex items-center justify-around px-2 pointer-events-auto shadow-sm">
+<!-- 1. Dashboard -->
+<a class="flex flex-col items-center justify-center flex-1 py-1 gap-1 text-text-tertiary active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="dashboard">dashboard</span>
+<span class="font-caption text-[11px] leading-tight font-medium">Dashboard</span>
+</a>
+<!-- 2. Herd (Active Tab) -->
+<a class="flex flex-col items-center justify-center flex-1 py-1 gap-1 text-accentFill active:scale-95 transition-transform" href="#">
+<div class="bg-accentTint px-3.5 py-0.5 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-[22px] text-accentFill" data-icon="format_list_bulleted">format_list_bulleted</span>
+</div>
+<span class="font-caption text-[11px] leading-tight font-semibold">Herd</span>
+</a>
+<!-- 3. Milk -->
+<a class="flex flex-col items-center justify-center flex-1 py-1 gap-1 text-text-tertiary active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="water_drop">water_drop</span>
+<span class="font-caption text-[11px] leading-tight font-medium">Milk</span>
+</a>
+<!-- 4. Breeding -->
+<a class="flex flex-col items-center justify-center flex-1 py-1 gap-1 text-text-tertiary active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="favorite">favorite</span>
+<span class="font-caption text-[11px] leading-tight font-medium">Breeding</span>
+</a>
+<!-- 5. Reports -->
+<a class="flex flex-col items-center justify-center flex-1 py-1 gap-1 text-text-tertiary active:scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined text-[22px]" data-icon="bar_chart">bar_chart</span>
+<span class="font-caption text-[11px] leading-tight font-medium">Reports</span>
+</a>
+</div>
+</nav>
+</div>
+</body></html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Herdline - Record Milk</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Sora:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface": "#FFFFFF",
+            "warning-bg": "#FAEFE1",
+            "primary-fixed": "#d9e2ff",
+            "secondary-container": "#2c6fe4",
+            "background": "#F4F7FC",
+            "error-container": "#ffdad6",
+            "accent": "#2B7BFF",
+            "on-surface-variant": "#424754",
+            "surfaceAlt": "#F4F7FC",
+            "surface-container-highest": "#e1e2ed",
+            "tertiary-fixed": "#ffdbcb",
+            "danger-text": "#CE2020",
+            "success-text": "#0E7C3A",
+            "primary": "#0056c4",
+            "error": "#ba1a1a",
+            "secondary-fixed-dim": "#b0c6ff",
+            "info-text": "#1B65DA",
+            "tertiary-fixed-dim": "#ffb690",
+            "surface-bright": "#faf8ff",
+            "inverse-on-surface": "#eff0fb",
+            "primary-container": "#0e6ef2",
+            "on-tertiary-fixed": "#341100",
+            "secondary-fixed": "#d9e2ff",
+            "on-primary": "#ffffff",
+            "accentPressed": "#2262CA",
+            "on-primary-fixed": "#001944",
+            "inverse-primary": "#afc6ff",
+            "tertiary": "#9a4100",
+            "border": "#DCE3EE",
+            "info-bg": "#E4EDFB",
+            "on-error": "#ffffff",
+            "warning-text": "#A75906",
+            "borderStrong": "#8B92B8",
+            "secondary": "#0056c5",
+            "accentFill": "#1B65DA",
+            "text-primary": "#0C131F",
+            "primary-fixed-dim": "#afc6ff",
+            "surface-dim": "#d8d9e4",
+            "outline-variant": "#c2c6d7",
+            "on-tertiary-container": "#fffbff",
+            "surface-container": "#ecedf8",
+            "text-secondary": "#4A5568",
+            "on-primary-container": "#fefcff",
+            "danger-bg": "#FBE5E5",
+            "outline": "#727786",
+            "tertiary-container": "#c15400",
+            "success-bg": "#E3F4E9",
+            "on-secondary": "#ffffff",
+            "support": "#4ADE80",
+            "surface-variant": "#e1e2ed",
+            "on-secondary-fixed-variant": "#00429a",
+            "on-primary-fixed-variant": "#00429a",
+            "on-error-container": "#93000a",
+            "surface-container-lowest": "#ffffff",
+            "inverse-surface": "#2d3039",
+            "surface-container-low": "#f2f3fe",
+            "supportStrong": "#1EAA52",
+            "on-tertiary-fixed-variant": "#783100",
+            "on-secondary-container": "#fefcff",
+            "accentTint": "#E3EEFF",
+            "on-tertiary": "#ffffff",
+            "text-tertiary": "#677283",
+            "surface-container-high": "#e6e7f3",
+            "on-background": "#191b23",
+            "surface-tint": "#0058c8",
+            "on-secondary-fixed": "#001944",
+            "on-surface": "#191b23"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "2xl": "1.25rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "4px",
+            "margin": "20px",
+            "space-xl": "24px",
+            "space-sm": "8px",
+            "gutter": "16px",
+            "space-lg": "16px",
+            "space-md": "12px",
+            "space-2xl": "32px"
+          },
+          "fontFamily": {
+            "title": ["Sora"],
+            "label": ["Inter"],
+            "display": ["Sora"],
+            "caption": ["Inter"],
+            "body": ["Inter"]
+          },
+          "fontSize": {
+            "title": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "label": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "display": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "caption": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+            "body": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+          },
+          "boxShadow": {
+            "card": "0 1px 2px rgba(12,19,31,0.04), 0 8px 24px rgba(12,19,31,0.06)",
+            "appbar": "0 1px 3px rgba(12,19,31,0.05)"
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .material-symbols-outlined.fill-icon {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-text-primary flex justify-center items-start min-h-screen antialiased selection:bg-accentTint">
+<!-- Mobile Frame Container (393px width constraint) -->
+<div class="w-full max-w-[393px] min-h-[852px] bg-background relative flex flex-col pb-36 shadow-2xl">
+<!-- Top App Bar (Task-Focused Navigation Shell) -->
+<header class="sticky top-0 z-40 bg-surface flex items-center justify-between px-margin h-14 shadow-appbar">
+<button aria-label="Close" class="w-10 h-10 -ml-2 rounded-full flex items-center justify-center text-text-primary hover:bg-surfaceAlt active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined">close</span>
+</button>
+<h1 class="font-title text-title text-text-primary tracking-tight">Record milk</h1>
+<button aria-label="Draft info" class="w-10 h-10 -mr-2 rounded-full flex items-center justify-center text-text-tertiary hover:bg-surfaceAlt active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined">info</span>
+</button>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-margin pt-space-lg flex flex-col gap-space-lg">
+<!-- Animal Picker Card -->
+<section class="bg-surface rounded-2xl p-space-lg shadow-card flex items-center justify-between cursor-pointer active:scale-[0.99] transition-all hover:bg-surface-bright border border-border/40">
+<div class="flex items-center gap-space-md">
+<div class="relative w-12 h-12 rounded-full overflow-hidden border border-border bg-surfaceAlt flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A portrait shot of a dairy Holstein Friesian cow in a rustic clean barn setting with soft natural morning window lighting, featuring sharp yellow ear tag details in a calm documentary agricultural aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFBGrF48PWDHqm6UkdPuldMiiZ-e2jercW_S9aCkFJnMVKNyoVAf5rVXG_Z2bjv88kZamGruP93hFKEbX5kMf4gjNqlRFN2CPVpIX80oMio5HDP5vQvoK62CpkJzbGILOGHdowiEDvOsnK5vKst7NuKJUet3Vq-Cm8RH4Lzx7_8rmUc3b5NRZ_bgh4QrWlHocFrdga-iTOng52Aa2uhaRI9JLoi_QtHquNQSAjm1tOJbv_ypMxK8cmqp_hvAYdfA0bmwgUv1Xv9ynEgA"/>
+</div>
+<div class="flex flex-col">
+<span class="font-title text-[16px] leading-snug font-semibold text-text-primary">Bella · NL 0482</span>
+<span class="font-label text-caption text-text-secondary">Pen 2 · Lactation 3</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-text-tertiary">chevron_right</span>
+</section>
+<!-- Session Selector (Segmented Control) -->
+<section class="bg-surface rounded-2xl p-space-xs shadow-card flex items-center gap-1 border border-border/40">
+<button class="flex-1 py-2.5 px-3 rounded-xl bg-accentFill text-on-primary font-label text-label flex items-center justify-center gap-2 shadow-sm transition-all" id="am-session" type="button">
+<span class="material-symbols-outlined text-[18px] fill-icon">light_mode</span>
+<span>AM Session</span>
+</button>
+<button class="flex-1 py-2.5 px-3 rounded-xl bg-surfaceAlt text-text-secondary hover:text-text-primary font-label text-label flex items-center justify-center gap-2 transition-all" id="pm-session" type="button">
+<span class="material-symbols-outlined text-[18px]">dark_mode</span>
+<span>PM Session</span>
+</button>
+</section>
+<!-- Focal Milk Yield Input Card -->
+<section class="bg-surface rounded-2xl p-space-lg shadow-card flex flex-col gap-space-md border border-border/40">
+<div class="flex justify-between items-center">
+<label class="font-caption text-caption font-medium text-text-secondary" for="yield-input">Milk yield</label>
+<span class="font-caption text-caption text-text-tertiary font-medium">Session target: 18.0 L</span>
+</div>
+<div class="flex items-center justify-between py-2 px-3 rounded-xl bg-surfaceAlt ring-2 ring-accent">
+<div class="flex items-baseline gap-1.5 flex-1">
+<input class="font-display text-display text-text-primary bg-transparent border-0 p-0 focus:ring-0 w-32 tracking-tight" id="yield-input" type="text" value="17.8"/>
+<span class="font-title text-title text-accentFill font-semibold">L</span>
+</div>
+<!-- Nudge Stepper Controls for fast one-handed barn entries -->
+<div class="flex items-center gap-1.5">
+<button class="w-10 h-10 rounded-lg bg-surface text-text-primary shadow-sm border border-border flex items-center justify-center font-title font-semibold active:scale-95 text-caption transition-all hover:bg-surface-bright" type="button">
+              -0.5
+            </button>
+<button class="w-10 h-10 rounded-lg bg-surface text-text-primary shadow-sm border border-border flex items-center justify-center font-title font-semibold active:scale-95 text-caption transition-all hover:bg-surface-bright" type="button">
+              +0.5
+            </button>
+</div>
+</div>
+<!-- Helper Context Badge -->
+<div class="flex items-center gap-2 pt-1 text-text-tertiary">
+<span class="w-5 h-5 rounded-full bg-success-bg flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-success-text text-[14px]">check</span>
+</span>
+<span class="font-caption text-caption text-text-tertiary">Typical for Bella: 15–20 L (Within expected range)</span>
+</div>
+</section>
+<!-- Date & Time Row -->
+<section class="grid grid-cols-2 gap-space-md">
+<!-- Date Input -->
+<div class="flex flex-col gap-1.5">
+<label class="font-caption text-caption font-medium text-text-secondary">Date</label>
+<div class="flex items-center gap-2 bg-surface border border-borderStrong rounded-xl px-3 py-2.5 shadow-sm focus-within:ring-2 focus-within:ring-accent">
+<span class="material-symbols-outlined text-text-tertiary text-[18px]">calendar_today</span>
+<input class="w-full bg-transparent border-0 p-0 font-label text-label text-text-primary focus:ring-0" readonly="" type="text" value="6 Nov 2026"/>
+</div>
+</div>
+<!-- Time Input -->
+<div class="flex flex-col gap-1.5">
+<label class="font-caption text-caption font-medium text-text-secondary">Time</label>
+<div class="flex items-center gap-2 bg-surface border border-borderStrong rounded-xl px-3 py-2.5 shadow-sm focus-within:ring-2 focus-within:ring-accent">
+<span class="material-symbols-outlined text-text-tertiary text-[18px]">access_time</span>
+<input class="w-full bg-transparent border-0 p-0 font-label text-label text-text-primary focus:ring-0" readonly="" type="text" value="05:40"/>
+</div>
+</div>
+</section>
+<!-- Notes Input Card -->
+<section class="flex flex-col gap-1.5">
+<label class="font-caption text-caption font-medium text-text-secondary" for="record-notes">Milking observation</label>
+<textarea class="w-full bg-surface border border-borderStrong rounded-xl p-3 font-body text-label text-text-primary placeholder:text-text-tertiary shadow-sm focus:border-accent focus:ring-2 focus:ring-accent resize-none outline-none" id="record-notes" placeholder="Optional notes (e.g. slight kick during milking, mastitis check clean)..." rows="3"></textarea>
+</section>
+</main>
+<!-- Sticky Bottom Action Bar (No Tab Bar per strict semantic shell rules) -->
+<div class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[393px] bg-surface/95 backdrop-blur-md px-margin pt-3 pb-6 border-t border-border/50 shadow-2xl flex flex-col items-center gap-2.5 z-50">
+<button class="w-full h-[52px] bg-accentFill active:bg-accentPressed text-on-primary rounded-full font-label text-label flex items-center justify-center gap-2 font-medium tracking-wide shadow-md active:scale-[0.98] transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">check</span>
+<span>Save record</span>
+</button>
+<!-- Offline Telemetry Status Badge -->
+<div class="flex items-center gap-1.5 text-text-tertiary font-caption text-caption">
+<span class="w-2 h-2 rounded-full bg-supportStrong inline-block"></span>
+<span>Saved locally on device</span>
+</div>
+</div>
+</div>
+</body></html>

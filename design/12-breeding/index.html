@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Herdline Breeding &amp; Reproduction</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Sora:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "tertiary-fixed-dim": "#ffb690",
+            "primary-fixed-dim": "#afc6ff",
+            "warning-bg": "#FAEFE1",
+            "tertiary-container": "#c15400",
+            "accentPressed": "#2262CA",
+            "on-primary": "#ffffff",
+            "on-surface": "#191b23",
+            "inverse-primary": "#afc6ff",
+            "outline": "#727786",
+            "borderStrong": "#8B92B8",
+            "on-tertiary-fixed-variant": "#783100",
+            "on-tertiary": "#ffffff",
+            "accentFill": "#1B65DA",
+            "on-secondary": "#ffffff",
+            "surface-container-high": "#e6e7f3",
+            "danger-text": "#CE2020",
+            "success-bg": "#E3F4E9",
+            "warning-text": "#A75906",
+            "inverse-surface": "#2d3039",
+            "surface-bright": "#faf8ff",
+            "on-secondary-container": "#fefcff",
+            "on-tertiary-fixed": "#341100",
+            "danger-bg": "#FBE5E5",
+            "surface-container-highest": "#e1e2ed",
+            "on-primary-fixed-variant": "#00429a",
+            "on-error-container": "#93000a",
+            "tertiary-fixed": "#ffdbcb",
+            "error": "#ba1a1a",
+            "secondary-container": "#2c6fe4",
+            "on-error": "#ffffff",
+            "surface": "#FFFFFF",
+            "on-background": "#191b23",
+            "on-tertiary-container": "#fffbff",
+            "text-secondary": "#4A5568",
+            "surface-container-lowest": "#ffffff",
+            "on-secondary-fixed": "#001944",
+            "secondary-fixed": "#d9e2ff",
+            "surface-dim": "#d8d9e4",
+            "text-primary": "#0C131F",
+            "surface-container-low": "#f2f3fe",
+            "outline-variant": "#c2c6d7",
+            "surface-tint": "#0058c8",
+            "surfaceAlt": "#F4F7FC",
+            "supportStrong": "#1EAA52",
+            "secondary": "#0056c5",
+            "primary-container": "#0e6ef2",
+            "on-primary-fixed": "#001944",
+            "inverse-on-surface": "#eff0fb",
+            "surface-variant": "#e1e2ed",
+            "background": "#F4F7FC",
+            "border": "#DCE3EE",
+            "on-surface-variant": "#424754",
+            "support": "#4ADE80",
+            "accent": "#2B7BFF",
+            "accentTint": "#E3EEFF",
+            "error-container": "#ffdad6",
+            "on-secondary-fixed-variant": "#00429a",
+            "info-text": "#1B65DA",
+            "info-bg": "#E4EDFB",
+            "success-text": "#0E7C3A",
+            "primary-fixed": "#d9e2ff",
+            "on-primary-container": "#fefcff",
+            "primary": "#0056c4",
+            "tertiary": "#9a4100",
+            "text-tertiary": "#677283",
+            "surface-container": "#ecedf8",
+            "secondary-fixed-dim": "#b0c6ff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "16px",
+            "gutter": "16px",
+            "space-sm": "8px",
+            "space-2xl": "32px",
+            "space-xl": "24px",
+            "margin": "20px",
+            "space-xs": "4px",
+            "space-md": "12px"
+          },
+          "fontFamily": {
+            "label": ["Inter"],
+            "title": ["Sora"],
+            "display": ["Sora"],
+            "body": ["Inter"],
+            "caption": ["Inter"]
+          },
+          "fontSize": {
+            "label": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "title": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "display": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "body": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "caption": ["13px", { "lineHeight": "18px", "fontWeight": "500" }]
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-background text-text-primary antialiased min-h-screen flex justify-center selection:bg-accentTint selection:text-accentFill">
+<!-- Mobile Device Frame Container (393px width targeted) -->
+<div class="relative w-full max-w-[393px] min-h-screen bg-background flex flex-col pb-36 overflow-x-hidden shadow-[0_0_50px_rgba(12,19,31,0.06)]">
+<!-- Top App Bar (Semantic Shell from Shared Components) -->
+<header class="sticky top-0 z-40 bg-surface dark:bg-inverse-surface shadow-[0_1px_2px_rgba(12,19,31,0.04)] w-full">
+<div class="flex justify-between items-center w-full px-5 py-3.5">
+<div class="flex items-center gap-2.5">
+<div class="w-8 h-8 rounded-full bg-accentTint flex items-center justify-center text-accentFill">
+<span class="material-symbols-outlined text-[19px]">pets</span>
+</div>
+<h1 class="font-title text-title font-semibold text-text-primary dark:text-inverse-on-surface tracking-tight">Breeding</h1>
+</div>
+<div class="flex items-center gap-1">
+<button aria-label="Search records" class="w-9 h-9 rounded-full flex items-center justify-center text-text-secondary hover:bg-surfaceAlt active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">search</span>
+</button>
+<button aria-label="Filter events" class="w-9 h-9 rounded-full flex items-center justify-center text-text-secondary hover:bg-surfaceAlt active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 px-5 pt-3.5 space-y-4">
+<!-- Segmented Control / Filter Tabs -->
+<section aria-label="Filter segments">
+<div class="bg-border/60 p-1 rounded-full flex items-center gap-1 shadow-inner">
+<button class="flex-1 py-1.5 px-3 rounded-full bg-surface text-accentFill font-label text-label font-semibold text-center shadow-[0_1px_3px_rgba(12,19,31,0.08)] transition-all" type="button">
+            Due now
+          </button>
+<button class="flex-1 py-1.5 px-3 rounded-full text-text-tertiary font-label text-label text-center hover:text-text-primary active:scale-98 transition-colors" type="button">
+            Calendar
+          </button>
+<button class="flex-1 py-1.5 px-3 rounded-full text-text-tertiary font-label text-label text-center hover:text-text-primary active:scale-98 transition-colors" type="button">
+            History
+          </button>
+</div>
+</section>
+<!-- Focal Hero Card: Calvings This Week -->
+<section class="rounded-[20px] bg-gradient-to-br from-accentFill to-accentPressed p-5 text-on-primary shadow-[0_8px_24px_rgba(27,101,218,0.22)] relative overflow-hidden">
+<!-- Subtle background pattern accent -->
+<div class="absolute -right-6 -bottom-6 w-32 h-32 rounded-full bg-white/5 pointer-events-none"></div>
+<div class="absolute right-4 top-4">
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/15 text-white font-caption text-caption backdrop-blur-sm border border-white/10">
+<span class="material-symbols-outlined text-[14px]">event_upcoming</span>
+            Week 45
+          </span>
+</div>
+<p class="text-white/80 font-label text-label mb-1 font-medium">Calvings this week</p>
+<div class="flex items-baseline gap-2 mb-2">
+<span class="font-display text-display font-bold text-white tracking-tight">3</span>
+<span class="text-white/70 font-caption text-caption">dams on pre-calving diet</span>
+</div>
+<div class="pt-3 border-t border-white/15 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-support"></span>
+<p class="font-caption text-caption text-white/95">Next: <strong class="font-semibold">Clover NL 0611</strong> on 9 Nov</p>
+</div>
+<span class="material-symbols-outlined text-white/80 text-[18px]">arrow_forward</span>
+</div>
+</section>
+<!-- Quick Navigation / Inventory Link Card -->
+<section>
+<button class="w-full text-left bg-surface rounded-[20px] p-4 shadow-[0_1px_2px_rgba(12,19,31,0.04)] shadow-[0_8px_24px_rgba(12,19,31,0.06)] hover:bg-surfaceAlt/60 active:scale-[0.99] transition-all flex items-center justify-between" type="button">
+<div class="flex items-center gap-3.5">
+<div class="w-10 h-10 rounded-full bg-info-bg flex items-center justify-center text-info-text shrink-0">
+<span class="material-symbols-outlined text-[22px]">science</span>
+</div>
+<div>
+<p class="font-label text-label font-semibold text-text-primary">Bulls &amp; semen - 186 straws in tank</p>
+<p class="font-caption text-caption text-text-tertiary">Inventory &amp; lineage matching</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-text-tertiary text-[20px]">chevron_right</span>
+</button>
+</section>
+<!-- Active Events Section -->
+<section class="space-y-3 pt-1">
+<!-- Section Header -->
+<div class="flex items-center justify-between px-1">
+<div class="flex items-center gap-2">
+<h2 class="font-title text-[17px] font-semibold text-text-primary tracking-tight">Active events</h2>
+<span class="px-2 py-0.5 rounded-full bg-warning-bg text-warning-text font-caption text-[11px] font-semibold tracking-wide">
+              4 pending
+            </span>
+</div>
+<span class="font-caption text-caption text-text-tertiary">Sort: Urgency</span>
+</div>
+<!-- Event Cards Stack -->
+<div class="space-y-3">
+<!-- Event 1: Daisy -->
+<article class="bg-surface rounded-[20px] p-4 shadow-[0_1px_2px_rgba(12,19,31,0.04)] shadow-[0_8px_24px_rgba(12,19,31,0.06)] transition-all">
+<div class="flex items-start justify-between gap-2 mb-2.5">
+<div class="flex items-center gap-3">
+<img alt="Daisy" class="w-11 h-11 rounded-full object-cover border-2 border-surfaceAlt shadow-sm shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1Uh-XqbQ8lIuSl3vs_fEjTi71TOXeyLn9AqOhRz4uOXsmNI0EF9cRAxbQBhSXZ7MaDGxaLZLStKW8A_sOwd8H3XUrXS9Kyg9R6pHBnSAFYp8Nyq839yOL8zJkqYQ0nF51y_9tsERHTlmR5TjzqKWCWRLUgyy5th8kxJ4xLjcrFR53gWH9GNpk4Pj0s94Du_pcRE7aQez928dth0TXpgjLQCdfAPHtOhycPcwnyOI8S3vHP4WAD48UbWuegvbg"/>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-label text-label font-semibold text-text-primary">Daisy</span>
+<span class="text-text-tertiary text-[12px]">·</span>
+<span class="font-caption text-caption text-text-secondary font-medium">NL 0517</span>
+</div>
+<p class="font-caption text-caption text-text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-accentFill">schedule</span>
+                    Today
+                  </p>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-warning-bg text-warning-text font-label text-[12px] font-semibold tracking-tight shrink-0">
+                Inseminate
+              </span>
+</div>
+<div class="bg-surfaceAlt rounded-xl px-3 py-2 flex flex-col gap-0.5">
+<p class="font-label text-[13px] font-medium text-text-primary">Heat observed</p>
+<p class="font-caption text-[12px] text-text-secondary">Pen 2 · standing heat flagged 2h ago</p>
+</div>
+</article>
+<!-- Event 2: Clover -->
+<article class="bg-surface rounded-[20px] p-4 shadow-[0_1px_2px_rgba(12,19,31,0.04)] shadow-[0_8px_24px_rgba(12,19,31,0.06)] transition-all">
+<div class="flex items-start justify-between gap-2 mb-2.5">
+<div class="flex items-center gap-3">
+<img alt="Clover" class="w-11 h-11 rounded-full object-cover border-2 border-surfaceAlt shadow-sm shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1XzD7Lmjj9xE9V3-lvAZEqVsCKwn7Gfn5wU-axyI1rzbbXSVKuN8WPrNseib0Gbw0UcTXx95Py0XwqyUDk5W1qjSO73eiBWfBtuvoMgNxnTdvKXQsoW2wpTkX1B7lMPV6627XuuQ-ufy3oclnPXY1cYM_2ABqslAdseyMjli0tI_2qt18tTL1CNlY8bn0v5vM-jLdQCWGzmwhPzMuQRxoqB4bU-MIut6-j2x-N4e0gItgfM9LQ2oWgT5lkLxg"/>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-label text-label font-semibold text-text-primary">Clover</span>
+<span class="text-text-tertiary text-[12px]">·</span>
+<span class="font-caption text-caption text-text-secondary font-medium">NL 0611</span>
+</div>
+<p class="font-caption text-caption text-text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-text-tertiary">calendar_today</span>
+                    9 Nov
+                  </p>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-warning-bg text-warning-text font-label text-[12px] font-semibold tracking-tight shrink-0">
+                Due
+              </span>
+</div>
+<div class="bg-surfaceAlt rounded-xl px-3 py-2 flex flex-col gap-0.5">
+<p class="font-label text-[13px] font-medium text-text-primary">Calving due</p>
+<p class="font-caption text-[12px] text-text-secondary">Maternity pen · gestation 282d</p>
+</div>
+</article>
+<!-- Event 3: Maple -->
+<article class="bg-surface rounded-[20px] p-4 shadow-[0_1px_2px_rgba(12,19,31,0.04)] shadow-[0_8px_24px_rgba(12,19,31,0.06)] transition-all">
+<div class="flex items-start justify-between gap-2 mb-2.5">
+<div class="flex items-center gap-3">
+<img alt="Maple" class="w-11 h-11 rounded-full object-cover border-2 border-surfaceAlt shadow-sm shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1Uh-XqbQ8lIuSl3vs_fEjTi71TOXeyLn9AqOhRz4uOXsmNI0EF9cRAxbQBhSXZ7MaDGxaLZLStKW8A_sOwd8H3XUrXS9Kyg9R6pHBnSAFYp8Nyq839yOL8zJkqYQ0nF51y_9tsERHTlmR5TjzqKWCWRLUgyy5th8kxJ4xLjcrFR53gWH9GNpk4Pj0s94Du_pcRE7aQez928dth0TXpgjLQCdfAPHtOhycPcwnyOI8S3vHP4WAD48UbWuegvbg"/>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-label text-label font-semibold text-text-primary">Maple</span>
+<span class="text-text-tertiary text-[12px]">·</span>
+<span class="font-caption text-caption text-text-secondary font-medium">NL 0702</span>
+</div>
+<p class="font-caption text-caption text-text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-text-tertiary">calendar_today</span>
+                    6 Nov
+                  </p>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-success-bg text-success-text font-label text-[12px] font-semibold tracking-tight shrink-0">
+                Confirmed
+              </span>
+</div>
+<div class="bg-surfaceAlt rounded-xl px-3 py-2 flex flex-col gap-0.5">
+<p class="font-label text-[13px] font-medium text-text-primary">Pregnancy check day 35</p>
+<p class="font-caption text-[12px] text-text-secondary">Pen 3 · Vet audit scheduled</p>
+</div>
+</article>
+<!-- Event 4: Hazel -->
+<article class="bg-surface rounded-[20px] p-4 shadow-[0_1px_2px_rgba(12,19,31,0.04)] shadow-[0_8px_24px_rgba(12,19,31,0.06)] transition-all">
+<div class="flex items-start justify-between gap-2 mb-2.5">
+<div class="flex items-center gap-3">
+<img alt="Hazel" class="w-11 h-11 rounded-full object-cover border-2 border-surfaceAlt shadow-sm shrink-0" src="https://lh3.googleusercontent.com/aida/AEtjO1XzD7Lmjj9xE9V3-lvAZEqVsCKwn7Gfn5wU-axyI1rzbbXSVKuN8WPrNseib0Gbw0UcTXx95Py0XwqyUDk5W1qjSO73eiBWfBtuvoMgNxnTdvKXQsoW2wpTkX1B7lMPV6627XuuQ-ufy3oclnPXY1cYM_2ABqslAdseyMjli0tI_2qt18tTL1CNlY8bn0v5vM-jLdQCWGzmwhPzMuQRxoqB4bU-MIut6-j2x-N4e0gItgfM9LQ2oWgT5lkLxg"/>
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-label text-label font-semibold text-text-primary">Hazel</span>
+<span class="text-text-tertiary text-[12px]">·</span>
+<span class="font-caption text-caption text-text-secondary font-medium">NL 0733</span>
+</div>
+<p class="font-caption text-caption text-text-tertiary flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px] text-text-tertiary">history</span>
+                    14 Oct
+                  </p>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-info-bg text-info-text font-label text-[12px] font-semibold tracking-tight shrink-0">
+                Inseminated
+              </span>
+</div>
+<div class="bg-surfaceAlt rounded-xl px-3 py-2 flex flex-col gap-0.5">
+<p class="font-label text-[13px] font-medium text-text-primary">Inseminated with Bolt straw</p>
+<p class="font-caption text-[12px] text-text-secondary">Pen 3 · 24d post-AI, monitor heat</p>
+</div>
+</article>
+</div>
+</section>
+<!-- Youngstock & Calving Reference Card -->
+<section class="bg-surface rounded-[20px] p-4 shadow-[0_1px_2px_rgba(12,19,31,0.04)] shadow-[0_8px_24px_rgba(12,19,31,0.06)] flex items-center gap-3.5 border border-border/40">
+<img alt="Calf nursery" class="w-12 h-12 rounded-xl object-cover shrink-0" src="https://lh3.googleusercontent.com/aida/ALJJyrDeZyhNx5eYO-A_t6nofQIOwxvifuhNl7shOm0Kmpl5Abo-pqeaDAZjEfW2-PG92mF11lx04DPhxkTat5e0g_eQHJNLvcj_qVhWHpt3vWe1UTielUTQit7X5b0byVKiChOXtWshycdNmHLwlwJXxGMwDb9x-T71C_UiBvrhPN1gkV1tb2QJKhGNY2eSZTQsMVVyi5XiEHkjS4x2ijxFolwzKJ8ielDsdiPmPPVB-BeJQja5UA0NPLRjOQTEZg"/>
+<div class="flex-1 min-w-0">
+<p class="font-label text-label font-semibold text-text-primary truncate">Calf nursery &amp; colostrum log</p>
+<p class="font-caption text-caption text-text-tertiary truncate">2 heifers tagged yesterday</p>
+</div>
+<span class="material-symbols-outlined text-text-tertiary text-[20px]">chevron_right</span>
+</section>
+</main>
+<!-- Floating Action Button (+ Log event) -->
+<div class="fixed bottom-20 left-0 right-0 z-40 flex justify-center pointer-events-none">
+<div class="w-full max-w-[393px] px-5 flex justify-end pointer-events-auto">
+<button class="h-[52px] px-6 rounded-full bg-accentFill hover:bg-accentPressed active:scale-95 text-on-primary font-label text-label font-medium shadow-[0_8px_20px_rgba(27,101,218,0.35)] flex items-center gap-2 transition-all" type="button">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span>Log event</span>
+</button>
+</div>
+</div>
+<!-- Bottom Nav Bar (Semantic Shell from Shared Components) -->
+<!-- Exactly 5 destinations: Dashboard, Herd, Milk, Breeding, Reports -->
+<nav class="fixed bottom-0 left-0 w-full z-50 bg-surface dark:bg-inverse-surface shadow-[0_8px_24px_rgba(12,19,31,0.06)] border-t border-border dark:border-outline">
+<div class="max-w-[393px] mx-auto flex justify-around items-center px-4 py-2 pb-6">
+<!-- Dashboard -->
+<button class="flex flex-col items-center justify-center text-text-secondary dark:text-outline-variant px-2 py-1 font-caption text-caption hover:text-primary transition-colors active:scale-95" type="button">
+<span class="material-symbols-outlined text-[22px]">grid_view</span>
+<span class="mt-0.5 text-[11px]">Dashboard</span>
+</button>
+<!-- Herd -->
+<button class="flex flex-col items-center justify-center text-text-secondary dark:text-outline-variant px-2 py-1 font-caption text-caption hover:text-primary transition-colors active:scale-95" type="button">
+<span class="material-symbols-outlined text-[22px]">fence</span>
+<span class="mt-0.5 text-[11px]">Herd</span>
+</button>
+<!-- Milk -->
+<button class="flex flex-col items-center justify-center text-text-secondary dark:text-outline-variant px-2 py-1 font-caption text-caption hover:text-primary transition-colors active:scale-95" type="button">
+<span class="material-symbols-outlined text-[22px]">water_drop</span>
+<span class="mt-0.5 text-[11px]">Milk</span>
+</button>
+<!-- Breeding (Active) -->
+<button class="flex flex-col items-center justify-center bg-accentTint dark:bg-secondary-container text-accentFill dark:text-on-secondary-container rounded-full px-4 py-1.5 font-label text-label active:scale-95 transition-all" type="button">
+<span class="material-symbols-outlined text-[22px]" style="font-variation-settings: 'FILL' 1;">favorite</span>
+<span class="mt-0.5 text-[11px] font-semibold text-accentFill">Breeding</span>
+</button>
+<!-- Reports -->
+<button class="flex flex-col items-center justify-center text-text-secondary dark:text-outline-variant px-2 py-1 font-caption text-caption hover:text-primary transition-colors active:scale-95" type="button">
+<span class="material-symbols-outlined text-[22px]">description</span>
+<span class="mt-0.5 text-[11px]">Reports</span>
+</button>
+</div>
+</nav>
+</div>
+</body></html>

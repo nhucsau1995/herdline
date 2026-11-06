@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Herdline Bulls &amp; Semen Inventory</title>
+<!-- Google Fonts: Sora & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Sora:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "background": "#F4F7FC",
+            "on-surface-variant": "#424754",
+            "border": "#DCE3EE",
+            "warning-text": "#A75906",
+            "surface-container": "#ecedf8",
+            "surface-bright": "#faf8ff",
+            "danger-text": "#CE2020",
+            "danger-bg": "#FBE5E5",
+            "text-tertiary": "#677283",
+            "on-error": "#ffffff",
+            "secondary-fixed": "#d9e2ff",
+            "on-secondary-fixed-variant": "#00429a",
+            "primary-fixed-dim": "#afc6ff",
+            "text-secondary": "#4A5568",
+            "surface": "#FFFFFF",
+            "on-tertiary-container": "#fffbff",
+            "error": "#ba1a1a",
+            "primary": "#0056c4",
+            "support": "#4ADE80",
+            "success-bg": "#E3F4E9",
+            "success-text": "#0E7C3A",
+            "on-primary": "#ffffff",
+            "secondary": "#0056c5",
+            "on-secondary-container": "#fefcff",
+            "surface-dim": "#d8d9e4",
+            "info-text": "#1B65DA",
+            "tertiary": "#9a4100",
+            "on-surface": "#191b23",
+            "inverse-primary": "#afc6ff",
+            "outline": "#727786",
+            "info-bg": "#E4EDFB",
+            "text-primary": "#0C131F",
+            "on-tertiary-fixed": "#341100",
+            "error-container": "#ffdad6",
+            "accentPressed": "#2262CA",
+            "surface-container-lowest": "#ffffff",
+            "surface-container-low": "#f2f3fe",
+            "on-secondary-fixed": "#001944",
+            "borderStrong": "#8B92B8",
+            "surface-tint": "#0058c8",
+            "supportStrong": "#1EAA52",
+            "tertiary-container": "#c15400",
+            "surface-container-highest": "#e1e2ed",
+            "primary-container": "#0e6ef2",
+            "inverse-surface": "#2d3039",
+            "on-secondary": "#ffffff",
+            "surface-variant": "#e1e2ed",
+            "accentTint": "#E3EEFF",
+            "on-tertiary-fixed-variant": "#783100",
+            "on-tertiary": "#ffffff",
+            "on-error-container": "#93000a",
+            "inverse-on-surface": "#eff0fb",
+            "on-primary-container": "#fefcff",
+            "surfaceAlt": "#F4F7FC",
+            "warning-bg": "#FAEFE1",
+            "outline-variant": "#c2c6d7",
+            "on-primary-fixed-variant": "#00429a",
+            "tertiary-fixed": "#ffdbcb",
+            "accent": "#2B7BFF",
+            "secondary-fixed-dim": "#b0c6ff",
+            "tertiary-fixed-dim": "#ffb690",
+            "on-background": "#191b23",
+            "surface-container-high": "#e6e7f3",
+            "secondary-container": "#2c6fe4",
+            "accentFill": "#1B65DA",
+            "primary-fixed": "#d9e2ff",
+            "on-primary-fixed": "#001944"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "20": "20px",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "16px",
+            "space-xs": "4px",
+            "space-xl": "24px",
+            "space-md": "12px",
+            "gutter": "16px",
+            "margin": "20px",
+            "space-2xl": "32px",
+            "space-sm": "8px"
+          },
+          "fontFamily": {
+            "title": ["Sora"],
+            "body": ["Inter"],
+            "label": ["Inter"],
+            "display": ["Sora"],
+            "caption": ["Inter"]
+          },
+          "fontSize": {
+            "title": [
+              "20px",
+              {
+                "lineHeight": "28px",
+                "fontWeight": "600"
+              }
+            ],
+            "body": [
+              "16px",
+              {
+                "lineHeight": "24px",
+                "fontWeight": "400"
+              }
+            ],
+            "label": [
+              "14px",
+              {
+                "lineHeight": "20px",
+                "fontWeight": "500"
+              }
+            ],
+            "display": [
+              "32px",
+              {
+                "lineHeight": "40px",
+                "letterSpacing": "-0.02em",
+                "fontWeight": "700"
+              }
+            ],
+            "caption": [
+              "13px",
+              {
+                "lineHeight": "18px",
+                "fontWeight": "500"
+              }
+            ]
+          },
+          "boxShadow": {
+            "ambient": "0 1px 2px rgba(12,19,31,0.04), 0 8px 24px rgba(12,19,31,0.06)",
+            "subtle": "0 1px 3px rgba(12,19,31,0.05)"
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    body {
+      -webkit-tap-highlight-color: transparent;
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-text-primary font-body antialiased min-h-screen flex justify-center selection:bg-accentTint selection:text-accentFill">
+<!-- Mobile Viewport Container: 393px width constraint -->
+<div class="w-full max-w-[393px] min-h-screen bg-background relative flex flex-col pb-32">
+<!-- Top App Bar (Shared Components Anchor execution) -->
+<header class="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-space-lg h-14 bg-surface dark:bg-surface shadow-sm max-w-[393px] mx-auto">
+<button aria-label="Go back" class="w-10 h-10 flex items-center justify-center text-primary dark:text-inverse-primary hover:bg-surface-container-low dark:hover:bg-surface-container-high transition-colors active:scale-95 transition-transform duration-150 rounded-full" type="button">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<h1 class="font-title text-title text-text-primary dark:text-surface-bright font-bold tracking-tight">Bulls &amp; Semen</h1>
+<button aria-label="Filter bulls and semen inventory" class="w-10 h-10 flex items-center justify-center text-primary dark:text-inverse-primary hover:bg-surface-container-low dark:hover:bg-surface-container-high transition-colors active:scale-95 transition-transform duration-150 rounded-full" type="button">
+<span class="material-symbols-outlined text-[24px]">tune</span>
+</button>
+</header>
+<!-- Main Content Canvas (Starts below 56px TopAppBar) -->
+<main class="pt-[70px] px-[20px] flex flex-col gap-space-lg">
+<!-- Focal White Hero Stat Card -->
+<section class="bg-surface rounded-20 p-space-lg shadow-ambient border border-border/40 relative overflow-hidden">
+<!-- Soft subtle tone pill in corner for storage unit -->
+<div class="flex items-center justify-between">
+<span class="font-caption text-caption text-text-secondary">Straws in tank</span>
+<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-surfaceAlt text-text-tertiary font-caption text-caption border border-border/60">
+<span class="material-symbols-outlined text-[16px] text-text-tertiary">science</span>
+            Tank 1
+          </span>
+</div>
+<div class="mt-2 flex items-baseline gap-2">
+<span class="font-display text-display text-accentFill">186</span>
+<span class="font-label text-label text-text-tertiary font-medium">units available</span>
+</div>
+<!-- Metric Subtext & Warning Status Indicator -->
+<div class="mt-3 pt-3 border-t border-border/60 flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1.5">
+<span class="font-label text-label text-text-secondary font-medium">4 bulls</span>
+<span class="text-text-tertiary text-xs">·</span>
+<span class="font-caption text-caption text-text-secondary">1 low on stock</span>
+</div>
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-warning-bg text-warning-text font-caption text-caption">
+<span class="material-symbols-outlined text-[15px]" style="font-variation-settings: 'FILL' 1;">warning</span>
+              Reorder soon
+            </span>
+</div>
+<!-- Nitrogen Tank Status Metadata -->
+<div class="flex items-center gap-2 mt-1 text-text-tertiary font-caption text-caption">
+<span class="w-2 h-2 rounded-full bg-supportStrong"></span>
+<span>Level 94%</span>
+<span class="text-borderStrong">·</span>
+<span>Checked 3d ago</span>
+<span class="text-borderStrong">·</span>
+<span>-196°C Normal</span>
+</div>
+</div>
+</section>
+<!-- Section Title & Secondary Quick Filter -->
+<div class="flex items-center justify-between pt-1">
+<h2 class="font-title text-[17px] leading-6 font-semibold text-text-primary">Inventory by Sire</h2>
+<span class="font-caption text-caption text-text-tertiary">4 records</span>
+</div>
+<!-- Bull Row Cards List -->
+<section class="flex flex-col gap-3">
+<!-- 1. Bull: Bolt · NL 0021 -->
+<article class="bg-surface rounded-20 p-space-lg shadow-ambient border border-border/40 hover:border-accent/40 transition-colors">
+<div class="flex items-center justify-between gap-3">
+<!-- Left: Bull Thumbnail & Details -->
+<div class="flex items-center gap-3">
+<div class="relative w-14 h-14 rounded-20 overflow-hidden flex-shrink-0 bg-surfaceAlt border border-border">
+<img class="w-full h-full object-cover" data-alt="A portrait of a robust black and white Holstein dairy bull standing in a clean, modern barn with natural overhead soft daylight highlighting its healthy coat and muscular frame." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAV8hUXm73AqTfvtQyidi_df2WGxI_547eaInT_UsGb5nGgTlg0p7NJ2Y6w-xpqPDkrxq8Rb7B_1rDMzzLqLrnZRqeM4jTIC8ga9AAN7ow3_W9uvi3_qf4leekFh7jKyQGxJZDPLZAHAEDhjrRdu2dYADP5ik_osbfkGtEneJ_g85KkIEESntxSN-C9pr6ELvm2xSok6TMXXZeciaBdABeVzjG_zQfvxBJyqktfkEZMj_Pf3K5SfEAVzGq3VGuqYnJ2tJoMxc99dFSeiw"/>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<h3 class="font-title text-[17px] font-semibold text-text-primary leading-tight">Bolt</h3>
+<span class="font-caption text-caption text-text-tertiary">NL 0021</span>
+</div>
+<p class="font-caption text-caption text-text-secondary mt-0.5">Holstein</p>
+<div class="flex items-center gap-1.5 mt-1.5">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-surfaceAlt text-text-secondary text-[11px] font-medium border border-border">Active Sire</span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded bg-surfaceAlt text-text-tertiary text-[11px] font-medium">Pen 1</span>
+</div>
+</div>
+</div>
+<!-- Right: Stock Count & Conception Rate -->
+<div class="flex flex-col items-end flex-shrink-0 pl-1">
+<div class="flex items-baseline gap-1">
+<span class="font-title text-title text-text-primary">72</span>
+<span class="font-caption text-[11px] text-text-tertiary">straws</span>
+</div>
+<span class="font-caption text-[12px] text-text-secondary mt-0.5">Conception 46%</span>
+</div>
+</div>
+</article>
+<!-- 2. Bull: Atlas · DE 1180 -->
+<article class="bg-surface rounded-20 p-space-lg shadow-ambient border border-border/40 hover:border-accent/40 transition-colors">
+<div class="flex items-center justify-between gap-3">
+<!-- Left: Bull Thumbnail & Details -->
+<div class="flex items-center gap-3">
+<div class="relative w-14 h-14 rounded-20 overflow-hidden flex-shrink-0 bg-surfaceAlt border border-border">
+<img class="w-full h-full object-cover" data-alt="A clean portrait of Atlas, a prime pedigree black and white Holstein bull in a bright cattle facility with high ceiling lights, exhibiting calm alert posture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0TLVdcyx8tGvahApAzdSkoFM5Ddrzb0DDCtp__lnAYkR-wX1fokZkB59WV8EexE4MtB9qdWie1sq0E6ft4Urt6P0H6VmJqUj_Iv0TCH3wL0lIPWjtGAq-Zk0-KK-Rn6NWDukDvivO2HTy4X2gIsZJQxUT3BbVKjFoIGBjaGeSdJwFxOnUTTZOzdWCFRuZ6yBMX79TYQLXWt95ZHXSOihdycKdDqpHS9gxFB-arG7H6IkGzEdnWF5diyPVCeJz_vU8uXvSz-GQiwo_5g"/>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<h3 class="font-title text-[17px] font-semibold text-text-primary leading-tight">Atlas</h3>
+<span class="font-caption text-caption text-text-tertiary">DE 1180</span>
+</div>
+<p class="font-caption text-caption text-text-secondary mt-0.5">Holstein</p>
+<div class="flex items-center gap-1.5 mt-1.5">
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-success-bg text-success-text text-[11px] font-medium">Proven Sire</span>
+</div>
+</div>
+</div>
+<!-- Right: Stock Count & Conception Rate -->
+<div class="flex flex-col items-end flex-shrink-0 pl-1">
+<div class="flex items-baseline gap-1">
+<span class="font-title text-title text-text-primary">48</span>
+<span class="font-caption text-[11px] text-text-tertiary">straws</span>
+</div>
+<span class="font-caption text-[12px] text-text-secondary mt-0.5">Conception 51%</span>
+</div>
+</div>
+</article>
+<!-- 3. Bull: Duke · NL 0045 (Low stock warning) -->
+<article class="bg-surface rounded-20 p-space-lg shadow-ambient border border-warning-text/30 hover:border-warning-text/60 transition-colors">
+<div class="flex items-center justify-between gap-3">
+<!-- Left: Bull Thumbnail & Details -->
+<div class="flex items-center gap-3">
+<div class="relative w-14 h-14 rounded-20 overflow-hidden flex-shrink-0 bg-surfaceAlt border border-border">
+<img class="w-full h-full object-cover" data-alt="Close-up photograph of a calm golden-brown Jersey dairy bull with distinctive dark facial features, standing on clean straw bedding in a bright wooden barn." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCWKgUGX8nfx7FykRMLKzYGNKo5dsz8TubUHygNYI-t_fqdJjM5fSz_-qd55gMd54sKnHuGA0UBRupvgRcKczFdIWfq6amcA5l_Te99wscfGcuAFJt6JbEMjWDAcmdR5W9nffIXpjCphOY3Yqy3ysm1LM5ALqTi5UxzxgFa7WEDLF35BqQmS5kTeJFV8SXl5UAlFJuzZRKbXY5XLgO0tHocT-OH91MhLvA0LuwGx_OLjo967v6iZ3dY4ZHcTvRbddk0jtAkf_PqLfgwWw"/>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<h3 class="font-title text-[17px] font-semibold text-text-primary leading-tight">Duke</h3>
+<span class="font-caption text-caption text-text-tertiary">NL 0045</span>
+</div>
+<p class="font-caption text-caption text-text-secondary mt-0.5">Jersey</p>
+<div class="flex items-center gap-1.5 mt-1.5">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-warning-bg text-warning-text text-[11px] font-medium">
+<span class="material-symbols-outlined text-[13px]" style="font-variation-settings: 'FILL' 1;">warning</span>
+                    Low stock
+                  </span>
+</div>
+</div>
+</div>
+<!-- Right: Stock Count & Conception Rate -->
+<div class="flex flex-col items-end flex-shrink-0 pl-1">
+<div class="flex items-baseline gap-1">
+<span class="font-title text-title text-warning-text">8</span>
+<span class="font-caption text-[11px] text-text-tertiary">straws</span>
+</div>
+<span class="font-caption text-[12px] text-text-secondary mt-0.5">Conception 39%</span>
+</div>
+</div>
+</article>
+<!-- 4. Bull: Sterling · NL 0077 (Sexed Female Tag) -->
+<article class="bg-surface rounded-20 p-space-lg shadow-ambient border border-border/40 hover:border-accent/40 transition-colors">
+<div class="flex items-center justify-between gap-3">
+<!-- Left: Bull Thumbnail & Details -->
+<div class="flex items-center gap-3">
+<div class="relative w-14 h-14 rounded-20 overflow-hidden flex-shrink-0 bg-surfaceAlt border border-border">
+<img class="w-full h-full object-cover" data-alt="A side profile photograph of a majestic mature Holstein bull with striking black-and-white markings standing inside an airy Dutch barn stall during daytime." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvs5ryhB4cDSt8cvABYcmkafrREk3bicM1lLFKC7WGREhXMrLtqTfFjRtydHlLxNQ4KS6WCFCXCuvGogCYgxxXAtPjYUM20VSd4zPzHi0SNYFtj4i0ePArQCMvB5RwDMzD8GTbNuV8HIbOZMW7TDWA9tiC2aFlIWo1ru-qMU5eSIx3rJHmyAOXYLUPI4cVwDc9UAOlcxunoIEYQ7c56QH8Qd9AjYN3ZrprcJnDHwyvp6UXAIxZSTC9YOcoZDM14LLQyyhUXwP1GzX8Ig"/>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<h3 class="font-title text-[17px] font-semibold text-text-primary leading-tight">Sterling</h3>
+<span class="font-caption text-caption text-text-tertiary">NL 0077</span>
+</div>
+<p class="font-caption text-caption text-text-secondary mt-0.5">Holstein (Sexed female)</p>
+<div class="flex items-center gap-1.5 mt-1.5">
+<span class="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-full bg-accentTint text-info-text text-[11px] font-medium">
+<span class="material-symbols-outlined text-[12px]">female</span>
+                    Sexed
+                  </span>
+<span class="inline-flex items-center px-1.5 py-0.5 rounded bg-surfaceAlt text-text-tertiary text-[11px] font-medium">Genomic +340</span>
+</div>
+</div>
+</div>
+<!-- Right: Stock Count & Conception Rate -->
+<div class="flex flex-col items-end flex-shrink-0 pl-1">
+<div class="flex items-baseline gap-1">
+<span class="font-title text-title text-text-primary">58</span>
+<span class="font-caption text-[11px] text-text-tertiary">straws</span>
+</div>
+<span class="font-caption text-[12px] text-text-secondary mt-0.5">Conception 44%</span>
+</div>
+</div>
+</article>
+</section>
+<!-- Tank Safety & Insemination Protocol Guidance Note -->
+<div class="bg-surfaceAlt rounded-20 p-4 border border-border/60 flex items-start gap-3 mt-1">
+<span class="material-symbols-outlined text-info-text text-[20px] mt-0.5">info</span>
+<div class="flex flex-col">
+<span class="font-caption text-[13px] text-text-primary font-semibold">Dry shipper precaution</span>
+<span class="font-caption text-[12px] text-text-secondary leading-snug mt-0.5">Keep canister below frost line for over 8 seconds. Inspect nitrogen canister vacuum seal weekly.</span>
+</div>
+</div>
+</main>
+<!-- Sticky Bottom Action Bar (Docked at bottom, absolutely NO tab bar per detail screen spec) -->
+<div class="fixed bottom-0 left-0 right-0 z-40 bg-surface/95 backdrop-blur-md border-t border-border/50 py-3 px-space-lg max-w-[393px] mx-auto flex flex-col items-center gap-1.5 shadow-[0_-4px_20px_rgba(12,19,31,0.06)]">
+<!-- 52px Primary Pill Button -->
+<button class="w-full h-[52px] bg-accentFill hover:bg-accentPressed active:scale-[0.98] text-white rounded-full flex items-center justify-center gap-2 font-label text-label transition-all shadow-sm" type="button">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span>Add straws</span>
+</button>
+<!-- Storage Location Note below button -->
+<div class="flex items-center gap-1.5 text-text-tertiary font-caption text-[12px]">
+<span class="material-symbols-outlined text-[14px]">pin_drop</span>
+<span>Liquid nitrogen container A-1</span>
+</div>
+</div>
+</div>
+</body></html>

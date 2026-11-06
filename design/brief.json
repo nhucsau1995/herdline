@@ -1,0 +1,424 @@
+{
+  "title": "Herdline",
+  "slug": "herdline",
+  "domain": "productivity",
+  "style": "bright",
+  "allow3D": false,
+  "features": [
+    "Animal registration and profile management (CRUD)",
+    "Pedigree and family tree tracking (sire, dam, grand-parents)",
+    "Daily milk production records per cow and per session",
+    "Basic lactation management (days in milk, lactation curve, 305-day yield)",
+    "Breeding and reproduction tracking (heats, inseminations, pregnancy checks, calving due dates)",
+    "Bull and semen straw inventory management",
+    "Animal health records (treatments, vaccinations, withdrawal periods)",
+    "Farm dashboard with key statistics",
+    "Basic reporting (milk, fertility, health summaries)",
+    "Role-based access: Admin, Manager, Worker, Veterinarian",
+    "Offline-first local database (SQLite / Drift)",
+    "Form validation and basic error handling"
+  ],
+  "screenCount": 16,
+  "sharedComponents": {
+    "bottomTabBar": {
+      "tabs": [
+        "Dashboard",
+        "Herd",
+        "Milk",
+        "Breeding",
+        "Reports"
+      ],
+      "icons": [
+        "layout-dashboard",
+        "list (herd list)",
+        "droplet",
+        "heart",
+        "bar-chart"
+      ],
+      "note": "Flat white bar, 5 tabs, rounded outline icons 24px with a 12px label under each. Active tab: icon + label in accent #2B7BFF with a small accent pill behind the icon. Inactive: tertiary text color. Same on every screen that shows nav."
+    },
+    "statusBar": "Top app bar: screen title left in Sora 20/600, a small 'Offline - saved on device' chip with a cloud-off icon on the right on Dashboard and Herd.",
+    "controls": "Primary button: pill, accentFill bg with white label, pressed = accentPressed, disabled = 40% opacity. Secondary button: pill, white bg, accent 1.5px border, accent label. Text input: 12px radius, borderStrong 1px border, focus = 2px accent ring, error = danger border + 13px danger helper text. Card: white, 20px radius, soft shadow. Chip: pill, accentTint bg with accent text (dark-ink), status chips use statusOn colors."
+  },
+  "screens": [
+    {
+      "name": "sign-in",
+      "purpose": "Choose a farm role and sign in on this device",
+      "content": "Hero photo of a dairy barn at sunrise with Holstein cows, app mark, title 'Herdline', subtitle 'Herd records that work without signal'. Role selector of 4 cards (Admin, Manager, Worker, Veterinarian) each with icon and one-line permission summary, Manager selected. PIN field (4 dots). Primary button 'Sign in'. Footer note 'All data stays on this device'.",
+      "group": "onboarding",
+      "nav": "none",
+      "states": [
+        "default"
+      ]
+    },
+    {
+      "name": "dashboard",
+      "purpose": "See the farm at a glance",
+      "content": "Greeting 'Good morning, Lena' with role chip 'Manager'. Focal gradient hero card: 'Milk today 4,812 L' with +3.2% vs 7-day avg and a small sparkline. 2x2 stat grid: Cows in milk 182, Dry cows 24, Pregnant 97, Heifers 41. 'Today' task list: 6 heat checks due, 3 calvings due this week, 2 cows in withdrawal (milk discarded), 1 vet visit 14:00. Quick actions row: Add animal, Record milk, Log health event.",
+      "group": "core",
+      "nav": "Dashboard",
+      "states": [
+        "default",
+        "empty"
+      ]
+    },
+    {
+      "name": "dashboard-empty",
+      "purpose": "First run before any animal exists",
+      "content": "Same app bar. Real photo of an empty clean barn stall with fresh straw. Title 'Your herd starts here', body 'Register your first animal or load the sample herd to explore.' Primary button 'Register first animal', secondary 'Load sample herd'.",
+      "group": "core",
+      "nav": "Dashboard",
+      "states": [
+        "empty"
+      ]
+    },
+    {
+      "name": "herd",
+      "purpose": "Browse, search and filter all animals",
+      "content": "Search field 'Search tag, name or group'. Filter chips: All 247, Milking 182, Dry 24, Heifers 41, Bulls 3. List rows with real cow photo thumbnail, ear tag 'NL 0482', name 'Bella', breed Holstein, group 'Pen 2', status chip (Milking / Dry / Pregnant / Treatment). Rows: Bella NL 0482, Daisy NL 0517, Rosie NL 0390 (Treatment), Clover NL 0611 (Dry), Maple NL 0702 (Pregnant), Hazel NL 0733. Floating primary button '+ Add animal'.",
+      "group": "core",
+      "nav": "Herd",
+      "states": [
+        "default",
+        "empty"
+      ]
+    },
+    {
+      "name": "herd-empty",
+      "purpose": "Herd list with no results for a filter",
+      "content": "Search field with 'NL 9999', filter chip 'Bulls' selected. Real photo of an empty green pasture with a wooden fence. Title 'No animals match', body 'Try another tag or clear the filters.' Secondary button 'Clear filters'.",
+      "group": "core",
+      "nav": "Herd",
+      "states": [
+        "empty"
+      ]
+    },
+    {
+      "name": "animal-profile",
+      "purpose": "See one animal's full profile",
+      "content": "Back arrow, edit and delete icons. Large real photo of Holstein cow Bella. Name 'Bella', tag 'NL 0482', chips Holstein, Pen 2, Milking. Focal stat row: Lactation 3, Days in milk 128, Avg 34.6 L/day. Info card: Born 12 Mar 2021, Sex Female, Sire 'Bolt NL 0021', Dam 'Rosa NL 0211'. Section links with chevrons: Pedigree, Milk history, Lactations, Breeding events, Health records.",
+      "group": "detail",
+      "nav": "none",
+      "states": [
+        "default"
+      ]
+    },
+    {
+      "name": "animal-form",
+      "purpose": "Register a new animal or edit one",
+      "content": "Title 'Register animal', close icon. Photo slot 'Add photo'. Fields: Ear tag (required) 'NL 0812', Name 'Poppy', Breed dropdown Holstein, Sex segmented Female/Male, Date of birth 04 Feb 2025, Group dropdown 'Heifers', Sire dropdown 'Bolt NL 0021', Dam dropdown 'Bella NL 0482'. One field in error state: Ear tag 'Tag NL 0482 is already in use'. Primary button 'Save animal'.",
+      "group": "detail",
+      "nav": "none",
+      "states": [
+        "default"
+      ]
+    },
+    {
+      "name": "pedigree",
+      "purpose": "View an animal's family tree",
+      "content": "Title 'Pedigree - Bella'. Three-generation tree drawn left to right with connector lines: Bella NL 0482 (focal accent card) -> Sire Bolt NL 0021 and Dam Rosa NL 0211 -> grand-sires and grand-dams (Atlas, Nora, Duke, Fleur). Each node is a small card with tag, name, breed, sex icon. Below: 'Offspring (2)': Poppy NL 0812 (2025), Lily NL 0655 (2023).",
+      "group": "detail",
+      "nav": "none",
+      "states": [
+        "default"
+      ]
+    },
+    {
+      "name": "milk",
+      "purpose": "Daily milk production records",
+      "content": "Date switcher 'Today, 6 Nov'. Focal total '4,812 L' with session split AM 2,488 L / PM 2,324 L. Bar chart of last 7 days. List of cow records: Bella NL 0482 AM 17.8 L PM 16.4 L, Daisy NL 0517 AM 19.2 L PM 18.0 L, Maple NL 0702 AM 12.1 L PM 11.5 L, Rosie NL 0390 'Withdrawal - discard' warning chip. Floating primary button 'Record milk'.",
+      "group": "core",
+      "nav": "Milk",
+      "states": [
+        "default"
+      ]
+    },
+    {
+      "name": "milk-entry",
+      "purpose": "Record one milking for a cow",
+      "content": "Title 'Record milk', close icon. Animal picker showing Bella NL 0482 with photo. Session segmented AM / PM (AM selected). Big numeric input '17.8' L (focal). Date 6 Nov 2026, Time 05:40. Optional notes field. Helper text 'Typical for Bella: 15-20 L'. Primary button 'Save record'.",
+      "group": "detail",
+      "nav": "none",
+      "states": [
+        "default"
+      ]
+    },
+    {
+      "name": "lactation",
+      "purpose": "Track the current lactation of a cow",
+      "content": "Title 'Lactation 3 - Bella'. Focal line chart: lactation curve, daily yield vs days in milk 0-305, peak marker at day 52 (41.2 L). Stat cards: Calved 1 Jul 2026, Days in milk 128, Total to date 4,428 L, Projected 305-day 10,150 L. Previous lactations table: L1 8,420 L, L2 9,610 L. Button 'Mark dry off'.",
+      "group": "detail",
+      "nav": "none",
+      "states": [
+        "default"
+      ]
+    },
+    {
+      "name": "breeding",
+      "purpose": "Track heats, inseminations, pregnancy and calving",
+      "content": "Segmented tabs: Due now / Calendar / History. Focal card 'Calvings this week 3'. Event list with date and status chips: Daisy NL 0517 Heat observed today -> 'Inseminate', Maple NL 0702 Pregnancy check day 35 'Confirmed', Hazel NL 0733 Inseminated 14 Oct with Bolt straw, Clover NL 0611 Calving due 9 Nov. Floating primary button 'Log event'. A link card 'Bulls & semen' with chevron.",
+      "group": "core",
+      "nav": "Breeding",
+      "states": [
+        "default"
+      ]
+    },
+    {
+      "name": "bulls-semen",
+      "purpose": "Manage bulls and semen straw inventory",
+      "content": "Title 'Bulls & semen'. Focal card 'Straws in tank 186' with low-stock note. List of bulls with real bull photo thumbnail: Bolt NL 0021 Holstein 72 straws, Atlas DE 1180 Holstein 48 straws, Duke NL 0045 Jersey 8 straws (Low stock warning chip), Sterling sexed Holstein 58 straws. Each row shows conception rate (e.g. 46%). Primary button 'Add straws'.",
+      "group": "detail",
+      "nav": "none",
+      "states": [
+        "default"
+      ]
+    },
+    {
+      "name": "health",
+      "purpose": "Health records and treatments for the herd",
+      "content": "Title 'Health records'. Focal card 'In withdrawal 2 cows - milk discarded until 9 Nov'. Filter chips All / Treatments / Vaccinations / Checks. Timeline list: 5 Nov Rosie NL 0390 Mastitis treatment, Dr. Sam Okafor, withdrawal 4 days; 3 Nov Herd vaccination BVD 182 animals; 1 Nov Hazel NL 0733 Lameness check, hoof trimmed; 28 Oct Daisy NL 0517 Vet pregnancy scan. Floating primary button 'Log health event'.",
+      "group": "detail",
+      "nav": "none",
+      "states": [
+        "default"
+      ]
+    },
+    {
+      "name": "reports",
+      "purpose": "Basic reports and key statistics",
+      "content": "Period chips 7 days / 30 days / Season. Focal stat 'Avg yield 33.9 L/cow/day'. Report cards: Milk production (bar chart), Fertility (conception rate 48%, calving interval 392 days), Health (6 treatments, 2 in withdrawal), Herd structure (donut: milking, dry, heifers, bulls). Each card has 'View' link. Row at bottom: 'Team & roles' and 'Health records' links with chevrons.",
+      "group": "core",
+      "nav": "Reports",
+      "states": [
+        "default"
+      ]
+    },
+    {
+      "name": "team-roles",
+      "purpose": "Admin manages users and their roles",
+      "content": "Title 'Team & roles'. Info chip 'Admin only'. User rows with real portrait avatar, name, role chip: Lena Park Manager, Tom Reyes Worker, Dr. Sam Okafor Veterinarian, Priya Shah Admin. Permission matrix card: rows (Animals, Milk, Breeding, Health, Reports, Team) x columns (Admin, Manager, Worker, Vet) with check / dash icons. Primary button 'Invite member'.",
+      "group": "settings",
+      "nav": "none",
+      "states": [
+        "default"
+      ]
+    }
+  ],
+  "bannedTerms": [
+    "Sync",
+    "Synced",
+    "Cloud backup",
+    "Push notification",
+    "Firebase",
+    "API",
+    "Marketplace",
+    "Payment",
+    "Subscription",
+    "Login with Google"
+  ],
+  "designSystem": {
+    "variant": "P33",
+    "theme": "light",
+    "frame": "393x852 mobile, top inset 59px, bottom inset 34px",
+    "color": {
+      "background": "#F4F7FC",
+      "surface": "#FFFFFF",
+      "surfaceAlt": "#F4F7FC",
+      "accent": "#2B7BFF",
+      "accentFill": "#1B65DA",
+      "accentTint": "#E3EEFF",
+      "accentPressed": "#2262CA",
+      "support": "#4ADE80",
+      "text": {
+        "primary": "#0C131F",
+        "secondary": "#4A5568",
+        "tertiary": "#677283"
+      },
+      "border": "#DCE3EE",
+      "success": "#16A34A",
+      "warning": "#D97706",
+      "danger": "#DC2626",
+      "gradient": [
+        "#1B65DA",
+        "#2262CA"
+      ],
+      "statusOn": {
+        "warning": {
+          "fg": "#A75906",
+          "tint": "#FAEFE1"
+        },
+        "success": {
+          "fg": "#0E7C3A",
+          "tint": "#E3F4E9"
+        },
+        "danger": {
+          "fg": "#CE2020",
+          "tint": "#FBE5E5"
+        },
+        "info": {
+          "fg": "#1B65DA",
+          "tint": "#E4EDFB"
+        }
+      },
+      "supportStrong": "#1EAA52",
+      "borderStrong": "#8B92B8"
+    },
+    "type": {
+      "fontFamily": "Inter",
+      "displayFamily": "Sora",
+      "numeralFamily": "Sora",
+      "display": "32 / 700 / -0.02em",
+      "title": "20 / 600",
+      "body": "16 / 400",
+      "label": "14 / 500",
+      "caption": "13 / 500",
+      "minSize": "12px (13px chips and tags, 14px safety or legal text)",
+      "scaleRule": "Use only the 5 declared sizes (display, title, body, label, caption)."
+    },
+    "radius": {
+      "card": 20,
+      "control": 14,
+      "input": 12,
+      "pill": 999
+    },
+    "spacing": "8pt scale (4, 8, 12, 16, 24, 32); edge padding 20px",
+    "elevation": "card = 0 1px 2px rgba(12,19,31,.04) + 0 8px 24px rgba(12,19,31,.06)",
+    "icons": "Lucide-style rounded outline, 24px, 1.75 stroke",
+    "a11y": "white labels only on accentFill; text on gradients >= 4.5:1; tap targets >= 44pt"
+  },
+  "tokenCheck": {
+    "results": [
+      {
+        "pair": "text.primary on background",
+        "ratio": 17.33,
+        "target": 4.5,
+        "pass": true,
+        "fixedTo": null,
+        "after": null
+      },
+      {
+        "pair": "text.primary on surface",
+        "ratio": 18.61,
+        "target": 4.5,
+        "pass": true,
+        "fixedTo": null,
+        "after": null
+      },
+      {
+        "pair": "text.secondary on background",
+        "ratio": 7.01,
+        "target": 4.5,
+        "pass": true,
+        "fixedTo": null,
+        "after": null
+      },
+      {
+        "pair": "text.secondary on surface",
+        "ratio": 7.53,
+        "target": 4.5,
+        "pass": true,
+        "fixedTo": null,
+        "after": null
+      },
+      {
+        "pair": "text.tertiary on background",
+        "ratio": 4.27,
+        "target": 4.5,
+        "pass": false,
+        "fixedTo": "#677283",
+        "after": 4.54
+      },
+      {
+        "pair": "text.tertiary on surface",
+        "ratio": 4.87,
+        "target": 4.5,
+        "pass": true,
+        "fixedTo": null,
+        "after": null
+      },
+      {
+        "pair": "white label on accentFill (buttons)",
+        "ratio": 4.68,
+        "target": 4.5,
+        "pass": true,
+        "fixedTo": null,
+        "after": null
+      },
+      {
+        "pair": "accentFill text on accentTint (chips, selected)",
+        "ratio": 3.99,
+        "target": 4.5,
+        "pass": false,
+        "fixedTo": "#1B65DA",
+        "after": 4.58
+      },
+      {
+        "pair": "accentFill as link text on background",
+        "ratio": 4.99,
+        "target": 4.5,
+        "pass": true,
+        "fixedTo": null,
+        "after": null
+      },
+      {
+        "pair": "white on hero gradient (both stops)",
+        "ratio": 5.36,
+        "target": 4.5,
+        "pass": true,
+        "fixedTo": null,
+        "after": null
+      },
+      {
+        "pair": "warning text on its tint and on surface",
+        "ratio": 2.81,
+        "target": 4.5,
+        "pass": false,
+        "fixedTo": "#A75906",
+        "after": 4.54
+      },
+      {
+        "pair": "success text on its tint and on surface",
+        "ratio": 2.89,
+        "target": 4.5,
+        "pass": false,
+        "fixedTo": "#0E7C3A",
+        "after": 4.64
+      },
+      {
+        "pair": "danger text on its tint and on surface",
+        "ratio": 4.01,
+        "target": 4.5,
+        "pass": false,
+        "fixedTo": "#CE2020",
+        "after": 4.53
+      },
+      {
+        "pair": "support as chart line / icon on surface (non-text 3:1)",
+        "ratio": 1.74,
+        "target": 3.0,
+        "pass": false,
+        "fixedTo": "#1EAA52",
+        "after": 3.03
+      },
+      {
+        "pair": "input / control border on surface (non-text 3:1)",
+        "ratio": 1.29,
+        "target": 3.0,
+        "pass": false,
+        "fixedTo": "#8B92B8",
+        "after": 3.04
+      }
+    ],
+    "changed": {
+      "text.tertiary": {
+        "from": "#6B7689",
+        "to": "#677283"
+      },
+      "accentFill": {
+        "from": "#276FE5",
+        "to": "#1B65DA"
+      }
+    },
+    "passed": true
+  }
+}

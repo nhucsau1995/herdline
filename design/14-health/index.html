@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Herdline - Health Records</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Sora:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-surface-variant": "#424754",
+            "background": "#F4F7FC",
+            "success-bg": "#E3F4E9",
+            "border": "#DCE3EE",
+            "surface-bright": "#faf8ff",
+            "on-secondary-fixed": "#001944",
+            "danger-text": "#CE2020",
+            "on-secondary-fixed-variant": "#00429a",
+            "tertiary-container": "#c15400",
+            "secondary-container": "#2c6fe4",
+            "surface-dim": "#d8d9e4",
+            "support": "#4ADE80",
+            "on-primary-fixed-variant": "#00429a",
+            "tertiary-fixed": "#ffdbcb",
+            "tertiary-fixed-dim": "#ffb690",
+            "on-secondary-container": "#fefcff",
+            "text-secondary": "#4A5568",
+            "surface-container-low": "#f2f3fe",
+            "on-tertiary-fixed": "#341100",
+            "on-primary": "#ffffff",
+            "on-error": "#ffffff",
+            "text-tertiary": "#677283",
+            "surface-variant": "#e1e2ed",
+            "on-secondary": "#ffffff",
+            "secondary-fixed": "#d9e2ff",
+            "surface-container-lowest": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "danger-bg": "#FBE5E5",
+            "primary": "#0056c4",
+            "outline-variant": "#c2c6d7",
+            "accent": "#2B7BFF",
+            "on-surface": "#191b23",
+            "text-primary": "#0C131F",
+            "secondary-fixed-dim": "#b0c6ff",
+            "surface-container-high": "#e6e7f3",
+            "outline": "#727786",
+            "on-tertiary-fixed-variant": "#783100",
+            "surface-tint": "#0058c8",
+            "success-text": "#0E7C3A",
+            "error-container": "#ffdad6",
+            "accentTint": "#E3EEFF",
+            "on-error-container": "#93000a",
+            "info-bg": "#E4EDFB",
+            "accentFill": "#1B65DA",
+            "surface": "#FFFFFF",
+            "inverse-primary": "#afc6ff",
+            "accentPressed": "#2262CA",
+            "tertiary": "#9a4100",
+            "warning-text": "#A75906",
+            "warning-bg": "#FAEFE1",
+            "inverse-on-surface": "#eff0fb",
+            "primary-fixed": "#d9e2ff",
+            "supportStrong": "#1EAA52",
+            "inverse-surface": "#2d3039",
+            "surface-container-highest": "#e1e2ed",
+            "on-primary-fixed": "#001944",
+            "surfaceAlt": "#F4F7FC",
+            "info-text": "#1B65DA",
+            "primary-fixed-dim": "#afc6ff",
+            "borderStrong": "#8B92B8",
+            "on-primary-container": "#fefcff",
+            "surface-container": "#ecedf8",
+            "on-background": "#191b23",
+            "error": "#ba1a1a",
+            "primary-container": "#0e6ef2",
+            "secondary": "#0056c5",
+            "on-tertiary-container": "#fffbff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "20": "20px",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xl": "24px",
+            "space-md": "12px",
+            "space-lg": "16px",
+            "space-2xl": "32px",
+            "gutter": "16px",
+            "margin": "20px",
+            "space-sm": "8px",
+            "space-xs": "4px"
+          },
+          "fontFamily": {
+            "body": ["Inter", "sans-serif"],
+            "label": ["Inter", "sans-serif"],
+            "display": ["Sora", "sans-serif"],
+            "caption": ["Inter", "sans-serif"],
+            "title": ["Sora", "sans-serif"]
+          },
+          "fontSize": {
+            "body": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "label": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "display": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "caption": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+            "title": ["20px", { "lineHeight": "28px", "fontWeight": "600" }]
+          },
+          "boxShadow": {
+            "card": "0 1px 2px rgba(12,19,31,0.04), 0 8px 24px rgba(12,19,31,0.06)",
+            "float": "0 4px 14px rgba(27,101,218,0.3)"
+          }
+        }
+      }
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 500, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .custom-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body class="bg-surfaceAlt text-text-primary antialiased min-h-screen flex justify-center selection:bg-accentTint selection:text-accentFill">
+<!-- Mobile Frame Container (393px width constraint) -->
+<main class="w-full max-w-[393px] bg-background min-h-screen flex flex-col relative pb-space-2xl">
+<!-- Top App Bar (Shared Components standard implementation) -->
+<header class="sticky top-0 z-50 flex items-center justify-between w-full h-14 px-margin bg-surface dark:bg-surface shadow-sm dark:shadow-none">
+<div class="flex items-center gap-space-sm">
+<button aria-label="Go back" class="w-10 h-10 -ml-2 rounded-full flex items-center justify-center text-text-primary hover:bg-surface-container-low active:scale-95 transition-transform duration-100 ease-in-out" type="button">
+<span class="material-symbols-outlined text-text-primary text-[24px]">arrow_back</span>
+</button>
+<h1 class="font-title text-title text-text-primary dark:text-surface-bright font-semibold tracking-tight">Health records</h1>
+</div>
+<div class="flex items-center">
+<button aria-label="More options" class="w-10 h-10 -mr-2 rounded-full flex items-center justify-center text-text-secondary hover:bg-surface-container-low active:scale-95 transition-transform duration-100 ease-in-out" type="button">
+<span class="material-symbols-outlined text-[24px]">more_vert</span>
+</button>
+</div>
+</header>
+<!-- Scrollable Screen Content -->
+<div class="flex-1 px-margin pt-space-lg flex flex-col gap-space-xl">
+<!-- Hero Focal Warning Card -->
+<section aria-labelledby="withdrawal-banner" class="bg-warning-bg rounded-20 p-space-lg shadow-card border border-warning-text/10 relative overflow-hidden">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-warning-text text-[20px]" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="font-caption text-caption text-warning-text font-medium" id="withdrawal-banner">In withdrawal</span>
+</div>
+<span class="bg-surface/70 px-2 py-0.5 rounded-full font-caption text-[11px] font-semibold text-warning-text tracking-wide">ATTENTION</span>
+</div>
+<div class="mt-space-sm">
+<div class="font-display text-display text-warning-text font-bold leading-none tracking-tight">2 cows</div>
+</div>
+<div class="mt-space-md pt-space-sm border-t border-warning-text/15 flex items-center gap-1.5 text-warning-text font-caption text-caption">
+<span class="material-symbols-outlined text-[16px]">calendar_today</span>
+<span>Milk discarded until 9 Nov</span>
+</div>
+</section>
+<!-- Filter Chips Row -->
+<section aria-label="Filter records">
+<div class="flex items-center gap-2 overflow-x-auto custom-scrollbar -mx-margin px-margin py-1">
+<button class="flex-shrink-0 h-9 px-4 rounded-full bg-accentFill text-on-primary font-label text-label font-medium shadow-sm transition-transform active:scale-95" type="button">
+            All
+          </button>
+<button class="flex-shrink-0 h-9 px-4 rounded-full bg-surface text-text-secondary font-label text-label font-medium shadow-card border border-border/60 hover:bg-surfaceAlt transition-transform active:scale-95" type="button">
+            Treatments
+          </button>
+<button class="flex-shrink-0 h-9 px-4 rounded-full bg-surface text-text-secondary font-label text-label font-medium shadow-card border border-border/60 hover:bg-surfaceAlt transition-transform active:scale-95" type="button">
+            Vaccinations
+          </button>
+<button class="flex-shrink-0 h-9 px-4 rounded-full bg-surface text-text-secondary font-label text-label font-medium shadow-card border border-border/60 hover:bg-surfaceAlt transition-transform active:scale-95" type="button">
+            Checks
+          </button>
+</div>
+</section>
+<!-- Vertical Timeline List -->
+<section aria-label="Timeline of health events" class="relative pb-24">
+<!-- Continuous Timeline Backbone Line -->
+<div class="absolute left-[11px] top-4 bottom-8 w-[2px] bg-border z-0"></div>
+<div class="flex flex-col gap-space-xl relative z-10">
+<!-- Timeline Item 1 (5 Nov) -->
+<article class="flex items-start gap-3 relative">
+<!-- Timeline Marker Ring -->
+<div class="flex flex-col items-center flex-shrink-0 pt-3">
+<div class="w-6 h-6 rounded-full bg-surface border-2 border-tertiary-container flex items-center justify-center shadow-sm">
+<div class="w-2.5 h-2.5 rounded-full bg-tertiary-container"></div>
+</div>
+</div>
+<!-- Card Content -->
+<div class="flex-1 bg-surface rounded-20 p-space-lg shadow-card">
+<div class="flex items-center justify-between gap-2">
+<span class="font-caption text-caption text-text-tertiary font-medium">5 Nov · 07:45</span>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-warning-bg text-warning-text font-caption text-caption font-semibold">
+                  Withdrawal 4 days
+                </span>
+</div>
+<div class="mt-2.5">
+<h2 class="font-title text-[17px] leading-snug font-semibold text-text-primary">Rosie · NL 0390</h2>
+<p class="font-label text-label text-text-secondary mt-0.5">Mastitis treatment</p>
+</div>
+<!-- Notes Box -->
+<div class="mt-3 p-2.5 rounded-xl bg-surfaceAlt border border-border/50 text-text-secondary font-caption text-caption leading-relaxed">
+                Intramammary course day 2/3. Milk diverted to waste line.
+              </div>
+<!-- Veterinarian Info -->
+<div class="mt-3.5 pt-3 border-t border-border/60 flex items-center gap-2.5">
+<img alt="Dr. Sam Okafor, DVM" class="w-7 h-7 rounded-full object-cover flex-shrink-0 border border-border" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPpRCiR0mUcGzm8AB6s97N5l8RbE5xsnTw5IOXNkyR4qIn0BoLTdTmdjRu9-PhITxhk7paM1OT74HmtDIdGoZk6O9LMsLR6F-F5pR_qStZ1U6Dsc7YtdsfJ8dZsRBA35FZiCkYh8eStAMaXFrelIxQIuipoKINgdUi65TygOqkdLlLKianeaqn3-pKYF71J9KBqeXviDh35miqzjzqV1JeT7F5ShWQV7xfmpcCh0S_Eo9bS0lD6q47ARAbVnlJ6Szbm6--EBGaymaOcA"/>
+<div class="flex flex-col min-w-0">
+<span class="font-caption text-caption font-semibold text-text-primary truncate">Dr. Sam Okafor, DVM</span>
+<span class="font-caption text-[11px] text-text-tertiary leading-none">Attending Veterinarian</span>
+</div>
+</div>
+</div>
+</article>
+<!-- Timeline Item 2 (3 Nov) -->
+<article class="flex items-start gap-3 relative">
+<!-- Timeline Marker Ring -->
+<div class="flex flex-col items-center flex-shrink-0 pt-3">
+<div class="w-6 h-6 rounded-full bg-surface border-2 border-accentFill flex items-center justify-center shadow-sm">
+<div class="w-2.5 h-2.5 rounded-full bg-accentFill"></div>
+</div>
+</div>
+<!-- Card Content -->
+<div class="flex-1 bg-surface rounded-20 p-space-lg shadow-card">
+<div class="flex items-center justify-between gap-2">
+<span class="font-caption text-caption text-text-tertiary font-medium">3 Nov · 14:10</span>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-info-bg text-info-text font-caption text-caption font-semibold">
+                  Vaccination
+                </span>
+</div>
+<div class="mt-2.5">
+<h2 class="font-title text-[17px] leading-snug font-semibold text-text-primary">Herd vaccination BVD</h2>
+<p class="font-label text-label text-text-secondary mt-0.5">182 animals · Whole herd booster</p>
+</div>
+<!-- Administered metadata -->
+<div class="mt-3 pt-3 border-t border-border/60 flex items-center gap-2 text-text-secondary font-caption text-caption">
+<span class="material-symbols-outlined text-[18px] text-text-tertiary">groups</span>
+<span class="truncate">Administered by: <strong class="font-semibold text-text-primary">Tom Reyes &amp; Farm Team</strong></span>
+</div>
+</div>
+</article>
+<!-- Timeline Item 3 (1 Nov) -->
+<article class="flex items-start gap-3 relative">
+<!-- Timeline Marker Ring -->
+<div class="flex flex-col items-center flex-shrink-0 pt-3">
+<div class="w-6 h-6 rounded-full bg-surface border-2 border-supportStrong flex items-center justify-center shadow-sm">
+<div class="w-2.5 h-2.5 rounded-full bg-supportStrong"></div>
+</div>
+</div>
+<!-- Card Content -->
+<div class="flex-1 bg-surface rounded-20 p-space-lg shadow-card">
+<div class="flex items-center justify-between gap-2">
+<span class="font-caption text-caption text-text-tertiary font-medium">1 Nov · 11:20</span>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-success-bg text-success-text font-caption text-caption font-semibold">
+                  Check
+                </span>
+</div>
+<div class="mt-2.5">
+<h2 class="font-title text-[17px] leading-snug font-semibold text-text-primary">Hazel · NL 0733</h2>
+<p class="font-label text-label text-text-secondary mt-0.5">Lameness check, hoof trimmed</p>
+</div>
+<div class="mt-3 p-2.5 rounded-xl bg-surfaceAlt border border-border/50 text-text-secondary font-caption text-caption">
+                Score 1 (Normal). Left hind claw re-balanced.
+              </div>
+</div>
+</article>
+<!-- Timeline Item 4 (28 Oct) -->
+<article class="flex items-start gap-3 relative">
+<!-- Timeline Marker Ring -->
+<div class="flex flex-col items-center flex-shrink-0 pt-3">
+<div class="w-6 h-6 rounded-full bg-surface border-2 border-supportStrong flex items-center justify-center shadow-sm">
+<div class="w-2.5 h-2.5 rounded-full bg-supportStrong"></div>
+</div>
+</div>
+<!-- Card Content -->
+<div class="flex-1 bg-surface rounded-20 p-space-lg shadow-card">
+<div class="flex items-center justify-between gap-2">
+<span class="font-caption text-caption text-text-tertiary font-medium">28 Oct · 09:15</span>
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-success-bg text-success-text font-caption text-caption font-semibold">
+                  Check
+                </span>
+</div>
+<div class="mt-2.5">
+<h2 class="font-title text-[17px] leading-snug font-semibold text-text-primary">Daisy · NL 0517</h2>
+<p class="font-label text-label text-text-secondary mt-0.5">Pregnancy scan</p>
+</div>
+<div class="mt-3 p-2.5 rounded-xl bg-surfaceAlt border border-border/50 text-text-secondary font-caption text-caption flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-success-text" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+<span>Confirmed pregnant · 42d gestation</span>
+</div>
+</div>
+</article>
+</div>
+</section>
+</div>
+<!-- Floating Pill Primary Action Button (Docked Bottom-Center) -->
+<!-- CRITICAL NEGATIVE CONSTRAINT: No bottom nav bar rendered on this task screen -->
+<div class="fixed bottom-6 left-0 right-0 max-w-[393px] mx-auto px-margin pointer-events-none z-40 flex justify-center">
+<button class="pointer-events-auto w-full h-[52px] bg-accentFill hover:bg-accentPressed text-on-primary rounded-full shadow-float flex items-center justify-center gap-2 font-label text-label font-medium transition-transform duration-100 active:scale-95" type="button">
+<span class="material-symbols-outlined text-[20px]">add</span>
+<span>Log health event</span>
+</button>
+</div>
+</main>
+</body></html>

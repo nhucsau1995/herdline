@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Herdline Pedigree</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Typography: Sora & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Sora:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "surface-tint": "#0058c8",
+            "accentPressed": "#2262CA",
+            "primary-fixed": "#d9e2ff",
+            "surface-container": "#ecedf8",
+            "primary": "#0056c4",
+            "info-text": "#1B65DA",
+            "info-bg": "#E4EDFB",
+            "accentTint": "#E3EEFF",
+            "on-secondary-container": "#fefcff",
+            "surface": "#FFFFFF",
+            "primary-fixed-dim": "#afc6ff",
+            "warning-text": "#A75906",
+            "surface-container-highest": "#e1e2ed",
+            "on-tertiary-fixed": "#341100",
+            "tertiary-fixed-dim": "#ffb690",
+            "tertiary-container": "#c15400",
+            "on-secondary-fixed": "#001944",
+            "on-primary-container": "#fefcff",
+            "on-tertiary": "#ffffff",
+            "inverse-surface": "#2d3039",
+            "surface-bright": "#faf8ff",
+            "inverse-primary": "#afc6ff",
+            "background": "#F4F7FC",
+            "secondary-fixed": "#d9e2ff",
+            "tertiary-fixed": "#ffdbcb",
+            "surface-container-lowest": "#ffffff",
+            "secondary-container": "#2c6fe4",
+            "on-primary-fixed-variant": "#00429a",
+            "surface-dim": "#d8d9e4",
+            "supportStrong": "#1EAA52",
+            "primary-container": "#0e6ef2",
+            "success-bg": "#E3F4E9",
+            "on-error": "#ffffff",
+            "outline": "#727786",
+            "accent": "#2B7BFF",
+            "surface-container-high": "#e6e7f3",
+            "secondary": "#0056c5",
+            "outline-variant": "#c2c6d7",
+            "on-secondary-fixed-variant": "#00429a",
+            "on-primary-fixed": "#001944",
+            "accentFill": "#1B65DA",
+            "warning-bg": "#FAEFE1",
+            "text-primary": "#0C131F",
+            "on-surface-variant": "#424754",
+            "danger-text": "#CE2020",
+            "on-tertiary-container": "#fffbff",
+            "error": "#ba1a1a",
+            "text-secondary": "#4A5568",
+            "surfaceAlt": "#F4F7FC",
+            "secondary-fixed-dim": "#b0c6ff",
+            "text-tertiary": "#677283",
+            "error-container": "#ffdad6",
+            "success-text": "#0E7C3A",
+            "borderStrong": "#8B92B8",
+            "on-tertiary-fixed-variant": "#783100",
+            "border": "#DCE3EE",
+            "inverse-on-surface": "#eff0fb",
+            "on-surface": "#191b23",
+            "on-background": "#191b23",
+            "support": "#4ADE80",
+            "tertiary": "#9a4100",
+            "danger-bg": "#FBE5E5",
+            "on-error-container": "#93000a",
+            "surface-container-low": "#f2f3fe",
+            "surface-variant": "#e1e2ed",
+            "on-secondary": "#ffffff",
+            "on-primary": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-xs": "4px",
+            "space-xl": "24px",
+            "space-sm": "8px",
+            "space-md": "12px",
+            "space-2xl": "32px",
+            "gutter": "16px",
+            "space-lg": "16px",
+            "margin": "20px"
+          },
+          "fontFamily": {
+            "caption": ["Inter"],
+            "label": ["Inter"],
+            "display": ["Sora"],
+            "title": ["Sora"],
+            "body": ["Inter"]
+          },
+          "fontSize": {
+            "caption": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+            "label": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "display": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+            "title": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "body": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+          },
+          "boxShadow": {
+            "ambient": "0 1px 2px rgba(12,19,31,0.04), 0 8px 24px rgba(12,19,31,0.06)",
+            "node": "0 1px 3px rgba(12,19,31,0.05)"
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body class="bg-background text-text-primary antialiased font-body min-h-screen flex justify-center">
+<!-- Mobile Frame Screen Container (393px viewport) -->
+<div class="w-full max-w-[393px] min-h-screen bg-background relative flex flex-col pb-space-2xl">
+<!-- TopAppBar Shared Component as configured in JSON -->
+<header class="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-margin h-14 bg-surface dark:bg-surface shadow-sm dark:shadow-none">
+<div class="flex items-center gap-space-sm">
+<button aria-label="Back" class="w-9 h-9 flex items-center justify-center rounded-full text-text-primary hover:bg-surface-container active:opacity-80 active:scale-95 transition-all duration-150" type="button">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</button>
+<div class="flex flex-col">
+<h1 class="font-title text-title font-semibold text-text-primary dark:text-on-surface leading-tight">Pedigree</h1>
+<span class="font-caption text-caption text-text-secondary">Bella · NL 0482</span>
+</div>
+</div>
+<button aria-label="Share" class="w-9 h-9 flex items-center justify-center rounded-full text-text-primary hover:bg-surface-container active:opacity-80 active:scale-95 transition-all duration-150" type="button">
+<span class="material-symbols-outlined text-[22px]">share</span>
+</button>
+</header>
+<!-- Top Spacer for fixed TopAppBar -->
+<div class="h-14 w-full flex-shrink-0"></div>
+<!-- Main Content Area -->
+<main class="px-margin pt-space-md flex-1 flex flex-col">
+<!-- GENERATION 1: Target Animal Focal Hero Card -->
+<section class="relative w-full rounded-[20px] p-space-lg shadow-ambient overflow-hidden bg-gradient-to-r from-[#1B65DA] to-[#2262CA] text-on-primary">
+<!-- Visual Accent Circles -->
+<div class="absolute -right-8 -top-8 w-32 h-32 rounded-full bg-white/10 pointer-events-none"></div>
+<div class="absolute right-12 -bottom-10 w-24 h-24 rounded-full bg-white/5 pointer-events-none"></div>
+<div class="relative z-10 flex flex-col gap-space-md">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-space-md">
+<!-- Cow Profile Image -->
+<div class="w-[52px] h-[52px] rounded-full ring-2 ring-white/60 overflow-hidden flex-shrink-0 bg-white/20">
+<img class="w-full h-full object-cover" data-alt="Authentic crisp documentary realistic photograph of a black and white Holstein dairy cow in a clean barn environment, wearing a yellow ear tag, soft natural barn lighting, documentary livestock photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBY44kK4_dSBlQdhOk27VrPvzJt5FA7IWDDwACxKk9J4tVr-vk2K8DsmaEhMstZufdL70VJePrLWzNe2bOvbdnSF5p3nsKD6pmttqImC8ekxZsLUb_W7gO5Aa_r2i-yWpb6LlgbNggoUSlVB4udWYpu2qZbFJnKomlj9QemWL8dmnC7XNqig3B1F3qeWtkdvR4A4yj21VWBw5EbhlqvlALVRN473iw81wU5bSoaJcg2CGYNAuY8hqpO-kUTNlwx1z0Iz4QsXPx1osqS8Q"/>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-space-sm">
+<h2 class="font-title text-[22px] font-bold tracking-tight text-white">Bella</h2>
+<span class="font-caption text-caption px-space-sm py-[2px] rounded-full bg-white/20 text-white font-medium backdrop-blur-xs">NL 0482</span>
+</div>
+<p class="font-caption text-caption text-white/80">Holstein · Born 12 Mar 2021</p>
+</div>
+</div>
+<!-- Generation Indicator Badge -->
+<span class="font-caption text-[11px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-white/15 text-white/90">
+              Proband
+            </span>
+</div>
+<!-- Quick Metrics Bar inside Focal Card -->
+<div class="flex items-center gap-2 pt-1 border-t border-white/15">
+<span class="inline-flex items-center gap-1 font-caption text-caption px-2.5 py-1 rounded-full bg-white/15 text-white">
+<span class="material-symbols-outlined text-[15px]">water_drop</span>
+              3 Lactations
+            </span>
+<span class="inline-flex items-center gap-1 font-caption text-caption px-2.5 py-1 rounded-full bg-white/15 text-white">
+<span class="font-bold text-[14px]">♀</span>
+              Female
+            </span>
+<span class="inline-flex items-center gap-1 font-caption text-caption px-2.5 py-1 rounded-full bg-white/15 text-white ml-auto">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+              Active
+            </span>
+</div>
+</div>
+</section>
+<!-- PEDIGREE FAMILY TREE TREE CONNECTIONS & GENERATIONS -->
+<section class="mt-space-sm flex flex-col items-center">
+<!-- Vertical connector from Gen 1 to Gen 2 Splitter -->
+<div class="w-[1.5px] h-4 bg-borderStrong"></div>
+<!-- Horizontal T-bar connecting Gen 2 branches -->
+<div class="w-[72%] h-[1.5px] bg-borderStrong relative">
+<!-- Left Drop to Sire -->
+<div class="absolute left-0 top-0 w-[1.5px] h-3 bg-borderStrong"></div>
+<!-- Right Drop to Dam -->
+<div class="absolute right-0 top-0 w-[1.5px] h-3 bg-borderStrong"></div>
+</div>
+<div class="h-3"></div>
+<!-- GENERATION 2 (Parents - Sire & Dam) -->
+<div class="w-full grid grid-cols-2 gap-space-sm">
+<!-- SIRE CARD (Father) -->
+<div class="flex flex-col items-center">
+<div class="w-full bg-surface rounded-[20px] p-space-md shadow-ambient border border-border flex flex-col gap-2 relative">
+<div class="flex items-center justify-between">
+<span class="font-caption text-[11px] font-semibold text-info-text bg-info-bg px-2 py-0.5 rounded-full flex items-center gap-0.5">
+<span class="font-bold">♂</span> Sire (Father)
+                </span>
+<span class="font-caption text-caption text-text-tertiary">NL 0021</span>
+</div>
+<div class="flex items-center gap-space-sm mt-0.5">
+<div class="w-10 h-10 rounded-full border border-border overflow-hidden flex-shrink-0 bg-surfaceAlt">
+<img class="w-full h-full object-cover" data-alt="A side profile photograph of a majestic purebred Holstein dairy bull in a farm pasture with soft daylight, capturing genuine agriculture documentation and breed pedigree authenticity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzIM2SudKwWKXvoT-xYuh_5h_aUnzewcWMJM9dhbt_GAaTDoDIlXC6GY1dxs8YBqfJT4cuTzanNKI0kduuJc9RP-81c5wu6M9SioL2jRgJIi2DKmq7JcAo1O4Jw0DrX_lHLNBQipHOcwHPBZYRQoIu3QO3K39ihg-SF3ol-o_QCCmCeMdmjPVLvedYSZiYIkkQwJk5Y-e6XzVX3HamEJL-JK3wf-RrEDe4VYajYNvMLt5FaMvb9_KHlW2TiysSy6YL5T6fgYrnXqGIGw"/>
+</div>
+<div class="flex flex-col min-w-0">
+<h3 class="font-title text-[15px] font-bold text-text-primary truncate">Bolt</h3>
+<span class="font-caption text-[12px] text-text-secondary truncate">Holstein</span>
+</div>
+</div>
+</div>
+<!-- Connector from Sire to Gen 3 Paternal Grandparents -->
+<div class="w-[1.5px] h-3 bg-borderStrong"></div>
+<div class="w-[70%] h-[1.5px] bg-borderStrong relative">
+<div class="absolute left-0 top-0 w-[1.5px] h-2.5 bg-borderStrong"></div>
+<div class="absolute right-0 top-0 w-[1.5px] h-2.5 bg-borderStrong"></div>
+</div>
+<div class="h-2.5"></div>
+<!-- GENERATION 3: Paternal Grandparents (2 cards under Sire) -->
+<div class="w-full grid grid-cols-2 gap-1.5">
+<!-- Atlas (PGS) -->
+<div class="bg-surface rounded-xl p-2 shadow-node border border-border flex flex-col">
+<div class="flex items-center justify-between mb-0.5">
+<span class="font-caption text-[10px] font-semibold text-info-text">PGS ♂</span>
+</div>
+<span class="font-title text-[13px] font-bold text-text-primary leading-tight truncate">Atlas</span>
+<span class="font-caption text-[11px] text-text-tertiary truncate">DE 1180</span>
+</div>
+<!-- Nora (PGD) -->
+<div class="bg-surface rounded-xl p-2 shadow-node border border-border flex flex-col">
+<div class="flex items-center justify-between mb-0.5">
+<span class="font-caption text-[10px] font-semibold text-text-secondary">PGD ♀</span>
+</div>
+<span class="font-title text-[13px] font-bold text-text-primary leading-tight truncate">Nora</span>
+<span class="font-caption text-[11px] text-text-tertiary truncate">NL 0102</span>
+</div>
+</div>
+</div>
+<!-- DAM CARD (Mother) -->
+<div class="flex flex-col items-center">
+<div class="w-full bg-surface rounded-[20px] p-space-md shadow-ambient border border-border flex flex-col gap-2 relative">
+<div class="flex items-center justify-between">
+<span class="font-caption text-[11px] font-semibold text-text-primary bg-surfaceAlt px-2 py-0.5 rounded-full flex items-center gap-0.5">
+<span class="font-bold">♀</span> Dam (Mother)
+                </span>
+<span class="font-caption text-caption text-text-tertiary">NL 0211</span>
+</div>
+<div class="flex items-center gap-space-sm mt-0.5">
+<div class="w-10 h-10 rounded-full border border-border overflow-hidden flex-shrink-0 bg-surfaceAlt">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1XzD7Lmjj9xE9V3-lvAZEqVsCKwn7Gfn5wU-axyI1rzbbXSVKuN8WPrNseib0Gbw0UcTXx95Py0XwqyUDk5W1qjSO73eiBWfBtuvoMgNxnTdvKXQsoW2wpTkX1B7lMPV6627XuuQ-ufy3oclnPXY1cYM_2ABqslAdseyMjli0tI_2qt18tTL1CNlY8bn0v5vM-jLdQCWGzmwhPzMuQRxoqB4bU-MIut6-j2x-N4e0gItgfM9LQ2oWgT5lkLxg"/>
+</div>
+<div class="flex flex-col min-w-0">
+<h3 class="font-title text-[15px] font-bold text-text-primary truncate">Rosa</h3>
+<span class="font-caption text-[12px] text-text-secondary truncate">Holstein</span>
+</div>
+</div>
+</div>
+<!-- Connector from Dam to Gen 3 Maternal Grandparents -->
+<div class="w-[1.5px] h-3 bg-borderStrong"></div>
+<div class="w-[70%] h-[1.5px] bg-borderStrong relative">
+<div class="absolute left-0 top-0 w-[1.5px] h-2.5 bg-borderStrong"></div>
+<div class="absolute right-0 top-0 w-[1.5px] h-2.5 bg-borderStrong"></div>
+</div>
+<div class="h-2.5"></div>
+<!-- GENERATION 3: Maternal Grandparents (2 cards under Dam) -->
+<div class="w-full grid grid-cols-2 gap-1.5">
+<!-- Duke (MGS) -->
+<div class="bg-surface rounded-xl p-2 shadow-node border border-border flex flex-col">
+<div class="flex items-center justify-between mb-0.5">
+<span class="font-caption text-[10px] font-semibold text-info-text">MGS ♂</span>
+</div>
+<span class="font-title text-[13px] font-bold text-text-primary leading-tight truncate">Duke</span>
+<span class="font-caption text-[11px] text-text-tertiary truncate">NL 0045</span>
+</div>
+<!-- Fleur (MGD) -->
+<div class="bg-surface rounded-xl p-2 shadow-node border border-border flex flex-col">
+<div class="flex items-center justify-between mb-0.5">
+<span class="font-caption text-[10px] font-semibold text-text-secondary">MGD ♀</span>
+</div>
+<span class="font-title text-[13px] font-bold text-text-primary leading-tight truncate">Fleur</span>
+<span class="font-caption text-[11px] text-text-tertiary truncate">NL 0098</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- OFFSPRING SECTION -->
+<section class="mt-space-xl flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<h2 class="font-title text-[18px] font-semibold text-text-primary">Offspring</h2>
+<span class="font-caption text-caption px-2 py-0.5 rounded-full bg-accentTint text-info-text font-semibold">2</span>
+</div>
+<span class="font-caption text-caption text-text-tertiary">All Recorded</span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- Offspring Card 1: Poppy -->
+<div class="bg-surface rounded-[16px] p-space-md shadow-ambient border border-border flex items-center justify-between hover:bg-surface-container active:scale-[0.99] transition-all cursor-pointer">
+<div class="flex items-center gap-space-md">
+<div class="w-11 h-11 rounded-full overflow-hidden border border-border bg-surfaceAlt flex-shrink-0">
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdgsUO-LIL7QclnJ2AcrBPaRasxSfefebv58OddoiVXqy68GuYJ9bZqBXRSqANlpSR1Pve20ATXMrdSisX02mkKJ6qmouSDaqxdzxFHvn32TbJDfIGqQkTJDhFA_6h0YxHKxYskIZZGxQyxpxbnyY7VLxWQW1iFYyfE0GW9xp6ofg3MxtaYdBBXqESpg039D6ZWxiAqDcKKJ_ZtDMSOZKiidV0wyUbfMmkFi-YkpI6Onq6YXRq8ycZM6PGpq30AYD4oYbDTx9AvHkqGg"/>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-title text-[16px] font-semibold text-text-primary">Poppy</span>
+<span class="font-caption text-[12px] text-text-tertiary">NL 0812</span>
+<span class="font-caption text-[11px] font-semibold px-2 py-0.5 rounded-full bg-info-bg text-info-text">Heifer</span>
+</div>
+<span class="font-caption text-[12px] text-text-secondary mt-0.5">Heifer calf · Born 04 Feb 2025</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-text-tertiary">chevron_right</span>
+</div>
+<!-- Offspring Card 2: Lily -->
+<div class="bg-surface rounded-[16px] p-space-md shadow-ambient border border-border flex items-center justify-between hover:bg-surface-container active:scale-[0.99] transition-all cursor-pointer">
+<div class="flex items-center gap-space-md">
+<div class="w-11 h-11 rounded-full overflow-hidden border border-border bg-surfaceAlt flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="Documentary agricultural photograph of an adult Holstein dairy cow standing calmly in clean barn bedding with natural lighting, showing healthy dairy farm livestock in high quality realism." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtQwyzDaXmoIPXB18Xm_L78HDtRxPeF8j04h2ab_b81sMkhZTY9DVV-qAVt6BU1iuY6YSDmpip9DlVEmr_r3wrOQ-AtdPSfX8FF0TUzfNWEQKi6tctc-l2zje8K092dJW3C_MhFrzq-3MYWohI_PUXJqZiSjuHecWCunehIQMiHktEr4A9hiIe47FU8JDE55U-pVR1I5JF4chFU0SRGMqH4x7IFE43LWRMERDXPVfz_7rf7927Y8Y3iESDrD9TDa_5OjxOvNHigbSTrA"/>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-title text-[16px] font-semibold text-text-primary">Lily</span>
+<span class="font-caption text-[12px] text-text-tertiary">NL 0655</span>
+<span class="font-caption text-[11px] font-semibold px-2 py-0.5 rounded-full bg-success-bg text-success-text">Milking</span>
+</div>
+<span class="font-caption text-[12px] text-text-secondary mt-0.5">Milking Cow · Born 18 Jan 2023</span>
+</div>
+</div>
+<span class="material-symbols-outlined text-text-tertiary">chevron_right</span>
+</div>
+</div>
+</section>
+<!-- Genetic Summary Quick Stat Pills (Bento footer addition) -->
+<section class="mt-space-lg grid grid-cols-2 gap-space-sm">
+<div class="bg-surface rounded-[16px] p-space-md border border-border flex flex-col gap-1">
+<span class="font-caption text-[12px] text-text-secondary">Inbreeding Coeff.</span>
+<div class="flex items-baseline gap-1">
+<span class="font-title text-[18px] font-bold text-text-primary">2.4%</span>
+<span class="font-caption text-[11px] text-success-text font-semibold">Low Risk</span>
+</div>
+</div>
+<div class="bg-surface rounded-[16px] p-space-md border border-border flex flex-col gap-1">
+<span class="font-caption text-[12px] text-text-secondary">Lineage Purity</span>
+<div class="flex items-baseline gap-1">
+<span class="font-title text-[18px] font-bold text-text-primary">100%</span>
+<span class="font-caption text-[11px] text-text-secondary">Purebred</span>
+</div>
+</div>
+</section>
+</main>
+</div>
+</body></html>

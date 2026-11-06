@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Herdline - Reports</title>
+<!-- Material Symbols Outlined -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Sora & Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Sora:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS v3 -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          "colors": {
+            "on-secondary": "#ffffff",
+            "surface-container-high": "#e6e7f3",
+            "on-error-container": "#93000a",
+            "on-primary-fixed-variant": "#00429a",
+            "accentPressed": "#2262CA",
+            "surfaceAlt": "#F4F7FC",
+            "primary": "#0056c4",
+            "surface-bright": "#faf8ff",
+            "secondary-fixed": "#d9e2ff",
+            "accentFill": "#1B65DA",
+            "surface-container-lowest": "#ffffff",
+            "secondary-container": "#2c6fe4",
+            "text-primary": "#0C131F",
+            "tertiary-container": "#c15400",
+            "tertiary": "#9a4100",
+            "on-secondary-container": "#fefcff",
+            "on-surface-variant": "#424754",
+            "secondary": "#0056c5",
+            "surface-container": "#ecedf8",
+            "secondary-fixed-dim": "#b0c6ff",
+            "surface-dim": "#d8d9e4",
+            "danger-text": "#CE2020",
+            "on-tertiary-container": "#fffbff",
+            "inverse-on-surface": "#eff0fb",
+            "supportStrong": "#1EAA52",
+            "accentTint": "#E3EEFF",
+            "inverse-surface": "#2d3039",
+            "on-tertiary": "#ffffff",
+            "primary-fixed-dim": "#afc6ff",
+            "surface-container-low": "#f2f3fe",
+            "on-secondary-fixed-variant": "#00429a",
+            "success-text": "#0E7C3A",
+            "warning-bg": "#FAEFE1",
+            "on-secondary-fixed": "#001944",
+            "on-tertiary-fixed": "#341100",
+            "text-secondary": "#4A5568",
+            "warning-text": "#A75906",
+            "support": "#4ADE80",
+            "surface-tint": "#0058c8",
+            "tertiary-fixed": "#ffdbcb",
+            "border": "#DCE3EE",
+            "error": "#ba1a1a",
+            "danger-bg": "#FBE5E5",
+            "primary-container": "#0e6ef2",
+            "on-primary-fixed": "#001944",
+            "info-bg": "#E4EDFB",
+            "outline": "#727786",
+            "error-container": "#ffdad6",
+            "background": "#F4F7FC",
+            "surface": "#FFFFFF",
+            "text-tertiary": "#677283",
+            "on-tertiary-fixed-variant": "#783100",
+            "outline-variant": "#c2c6d7",
+            "on-primary-container": "#fefcff",
+            "on-background": "#191b23",
+            "success-bg": "#E3F4E9",
+            "on-error": "#ffffff",
+            "borderStrong": "#8B92B8",
+            "surface-container-highest": "#e1e2ed",
+            "info-text": "#1B65DA",
+            "inverse-primary": "#afc6ff",
+            "on-surface": "#191b23",
+            "accent": "#2B7BFF",
+            "primary-fixed": "#d9e2ff",
+            "tertiary-fixed-dim": "#ffb690",
+            "surface-variant": "#e1e2ed",
+            "on-primary": "#ffffff"
+          },
+          "borderRadius": {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          "spacing": {
+            "space-lg": "16px",
+            "space-xl": "24px",
+            "space-2xl": "32px",
+            "margin": "20px",
+            "gutter": "16px",
+            "space-xs": "4px",
+            "space-sm": "8px",
+            "space-md": "12px"
+          },
+          "fontFamily": {
+            "caption": ["Inter", "sans-serif"],
+            "label": ["Inter", "sans-serif"],
+            "body": ["Inter", "sans-serif"],
+            "title": ["Sora", "sans-serif"],
+            "display": ["Sora", "sans-serif"]
+          },
+          "fontSize": {
+            "caption": ["13px", { "lineHeight": "18px", "fontWeight": "500" }],
+            "label": ["14px", { "lineHeight": "20px", "fontWeight": "500" }],
+            "body": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+            "title": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+            "display": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "700" }]
+          }
+        },
+      },
+    }
+  </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-text-primary antialiased font-body min-h-screen flex justify-center">
+<!-- Mobile Screen Container (393px width targeted) -->
+<main class="w-full max-w-[393px] bg-background min-h-screen relative flex flex-col pb-28 shadow-xl">
+<!-- Status Bar (~44px) -->
+<header class="w-full h-11 pt-2 px-6 flex justify-between items-center text-text-primary select-none z-30">
+<span class="font-caption text-caption font-semibold">09:41</span>
+<div class="flex items-center space-x-1.5 text-text-primary">
+<span class="material-symbols-outlined text-[17px] leading-none" data-icon="signal_cellular_alt">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[17px] leading-none" data-icon="wifi">wifi</span>
+<span class="material-symbols-outlined text-[20px] leading-none" data-icon="battery_full">battery_full</span>
+</div>
+</header>
+<!-- Top App Bar Component -->
+<nav class="flex justify-between items-center w-full px-margin h-14 bg-surface shadow-sm sticky top-0 z-20">
+<div class="flex items-center space-x-3">
+<button aria-label="Open menu" class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors text-text-primary active:scale-95 duration-150" type="button">
+<span class="material-symbols-outlined text-text-primary" data-icon="menu">menu</span>
+</button>
+<h1 class="font-title text-title text-text-primary font-semibold tracking-tight">Reports</h1>
+</div>
+<div class="flex items-center space-x-1">
+<button aria-label="Export or share" class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors text-text-primary active:scale-95 duration-150" type="button">
+<span class="material-symbols-outlined text-text-primary" data-icon="file_download">file_download</span>
+</button>
+<button aria-label="Notifications" class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-surface-container-low transition-colors text-text-primary active:scale-95 duration-150" type="button">
+<span class="material-symbols-outlined text-text-primary" data-icon="notifications">notifications</span>
+</button>
+</div>
+</nav>
+<!-- Page Content Flow -->
+<div class="px-margin pt-4 flex flex-col space-y-4">
+<!-- Period Filter Chips -->
+<section aria-label="Time period selection" class="flex items-center space-x-2">
+<button class="px-4 py-1.5 rounded-full font-caption text-caption bg-surface text-text-secondary shadow-sm hover:bg-surface-container-low active:scale-95 duration-150 transition-colors" type="button">
+          7 days
+        </button>
+<button class="px-4 py-1.5 rounded-full font-caption text-caption bg-accentFill text-white shadow-sm active:scale-95 duration-150 transition-colors" type="button">
+          30 days
+        </button>
+<button class="px-4 py-1.5 rounded-full font-caption text-caption bg-surface text-text-secondary shadow-sm hover:bg-surface-container-low active:scale-95 duration-150 transition-colors" type="button">
+          Season
+        </button>
+</section>
+<!-- Focal Hero Card -->
+<section class="w-full rounded-[20px] bg-gradient-to-r from-accentFill to-accentPressed p-5 text-white shadow-[0_1px_2px_rgba(12,19,31,0.04),0_8px_24px_rgba(12,19,31,0.06)] flex flex-col justify-between relative overflow-hidden">
+<div class="flex justify-between items-start">
+<span class="font-caption text-caption text-white/85">Average yield</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full bg-white/20 font-caption text-[11px] text-white backdrop-blur-xs font-semibold">
+<span class="material-symbols-outlined text-[13px] mr-0.5 leading-none" data-icon="trending_up">trending_up</span>
+            +4.3%
+          </span>
+</div>
+<div class="my-3">
+<div class="font-display text-display tracking-tight text-white leading-none">33.9 L</div>
+</div>
+<div class="flex items-center text-white/90 font-caption text-caption">
+<span>per cow per day, +1.4 L vs last month</span>
+</div>
+</section>
+<!-- Report Card 1: Milk Production -->
+<section class="w-full bg-surface rounded-[20px] p-space-lg shadow-[0_1px_2px_rgba(12,19,31,0.04),0_8px_24px_rgba(12,19,31,0.06)] flex flex-col space-y-3">
+<header class="flex justify-between items-center">
+<h2 class="font-title text-[17px] font-semibold text-text-primary">Milk production</h2>
+<button class="flex items-center text-info-text font-label text-label font-medium hover:opacity-80 transition-opacity" type="button">
+<span>View</span>
+<span class="material-symbols-outlined text-[16px] ml-0.5" data-icon="chevron_right">chevron_right</span>
+</button>
+</header>
+<!-- Summary Metric -->
+<div class="bg-surfaceAlt px-3 py-2 rounded-xl flex justify-between items-center">
+<span class="font-caption text-caption text-text-secondary">Herd daily total</span>
+<span class="font-label text-label font-semibold text-text-primary">4,812 L/day</span>
+</div>
+<!-- AM/PM Milk Production Mini Bar Chart -->
+<div class="pt-2">
+<div class="h-28 flex items-end justify-between gap-2 px-1">
+<!-- Day 1 -->
+<div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end">
+<div class="w-full flex items-end justify-center gap-1 h-20">
+<div class="w-2.5 bg-accent rounded-t" style="height: 68%;"></div>
+<div class="w-2.5 bg-supportStrong rounded-t" style="height: 58%;"></div>
+</div>
+<span class="font-caption text-[11px] text-text-tertiary">Mon</span>
+</div>
+<!-- Day 2 -->
+<div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end">
+<div class="w-full flex items-end justify-center gap-1 h-20">
+<div class="w-2.5 bg-accent rounded-t" style="height: 74%;"></div>
+<div class="w-2.5 bg-supportStrong rounded-t" style="height: 64%;"></div>
+</div>
+<span class="font-caption text-[11px] text-text-tertiary">Tue</span>
+</div>
+<!-- Day 3 -->
+<div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end">
+<div class="w-full flex items-end justify-center gap-1 h-20">
+<div class="w-2.5 bg-accent rounded-t" style="height: 70%;"></div>
+<div class="w-2.5 bg-supportStrong rounded-t" style="height: 60%;"></div>
+</div>
+<span class="font-caption text-[11px] text-text-tertiary">Wed</span>
+</div>
+<!-- Day 4 -->
+<div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end">
+<div class="w-full flex items-end justify-center gap-1 h-20">
+<div class="w-2.5 bg-accent rounded-t" style="height: 82%;"></div>
+<div class="w-2.5 bg-supportStrong rounded-t" style="height: 72%;"></div>
+</div>
+<span class="font-caption text-[11px] text-text-tertiary">Thu</span>
+</div>
+<!-- Day 5 -->
+<div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end">
+<div class="w-full flex items-end justify-center gap-1 h-20">
+<div class="w-2.5 bg-accent rounded-t" style="height: 86%;"></div>
+<div class="w-2.5 bg-supportStrong rounded-t" style="height: 75%;"></div>
+</div>
+<span class="font-caption text-[11px] text-text-tertiary">Fri</span>
+</div>
+<!-- Day 6 -->
+<div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end">
+<div class="w-full flex items-end justify-center gap-1 h-20">
+<div class="w-2.5 bg-accent rounded-t" style="height: 90%;"></div>
+<div class="w-2.5 bg-supportStrong rounded-t" style="height: 78%;"></div>
+</div>
+<span class="font-caption text-[11px] text-text-tertiary">Sat</span>
+</div>
+<!-- Day 7 -->
+<div class="flex-1 flex flex-col items-center gap-1.5 h-full justify-end">
+<div class="w-full flex items-end justify-center gap-1 h-20">
+<div class="w-2.5 bg-accent rounded-t" style="height: 84%;"></div>
+<div class="w-2.5 bg-supportStrong rounded-t" style="height: 70%;"></div>
+</div>
+<span class="font-caption text-[11px] text-text-tertiary">Sun</span>
+</div>
+</div>
+<!-- Chart Legend -->
+<div class="flex items-center justify-center space-x-5 pt-3 border-t border-border mt-2">
+<div class="flex items-center space-x-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-accent"></span>
+<span class="font-caption text-[12px] text-text-secondary">AM session</span>
+</div>
+<div class="flex items-center space-x-1.5">
+<span class="w-2.5 h-2.5 rounded-full bg-supportStrong"></span>
+<span class="font-caption text-[12px] text-text-secondary">PM session</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Report Card 2: Fertility -->
+<section class="w-full bg-surface rounded-[20px] p-space-lg shadow-[0_1px_2px_rgba(12,19,31,0.04),0_8px_24px_rgba(12,19,31,0.06)] flex flex-col space-y-3">
+<header class="flex justify-between items-center">
+<h2 class="font-title text-[17px] font-semibold text-text-primary">Fertility</h2>
+<button class="flex items-center text-info-text font-label text-label font-medium hover:opacity-80 transition-opacity" type="button">
+<span>View</span>
+<span class="material-symbols-outlined text-[16px] ml-0.5" data-icon="chevron_right">chevron_right</span>
+</button>
+</header>
+<div class="grid grid-cols-2 gap-3 pt-1">
+<!-- Stat 1 -->
+<div class="bg-surfaceAlt p-3.5 rounded-2xl flex flex-col justify-between">
+<span class="font-caption text-caption text-text-secondary">Conception rate</span>
+<div class="font-title text-[24px] font-bold text-text-primary mt-1 mb-2">48%</div>
+<span class="inline-block px-2 py-0.5 rounded-full bg-success-bg text-success-text font-caption text-[11px] font-semibold">
+              Target 45% (Above)
+            </span>
+</div>
+<!-- Stat 2 -->
+<div class="bg-surfaceAlt p-3.5 rounded-2xl flex flex-col justify-between">
+<span class="font-caption text-caption text-text-secondary">Calving interval</span>
+<div class="font-title text-[24px] font-bold text-text-primary mt-1 mb-2">392 d</div>
+<span class="font-caption text-[11px] text-text-tertiary">
+              Optimal 385–400d
+            </span>
+</div>
+</div>
+</section>
+<!-- Report Card 3: Health -->
+<section class="w-full bg-surface rounded-[20px] p-space-lg shadow-[0_1px_2px_rgba(12,19,31,0.04),0_8px_24px_rgba(12,19,31,0.06)] flex flex-col space-y-3">
+<header class="flex justify-between items-center">
+<h2 class="font-title text-[17px] font-semibold text-text-primary">Health</h2>
+<button class="flex items-center text-info-text font-label text-label font-medium hover:opacity-80 transition-opacity" type="button">
+<span>View</span>
+<span class="material-symbols-outlined text-[16px] ml-0.5" data-icon="chevron_right">chevron_right</span>
+</button>
+</header>
+<div class="grid grid-cols-2 gap-3 pt-1">
+<div class="p-3 bg-surfaceAlt rounded-2xl flex flex-col justify-between">
+<span class="font-title text-[22px] font-bold text-text-primary">6</span>
+<span class="font-caption text-caption text-text-secondary font-medium">treatments</span>
+<span class="font-caption text-[11px] text-text-tertiary mt-1">Active vet courses</span>
+</div>
+<div class="p-3 bg-warning-bg rounded-2xl flex flex-col justify-between">
+<div class="flex items-center justify-between">
+<span class="font-title text-[22px] font-bold text-warning-text">2</span>
+<span class="material-symbols-outlined text-warning-text text-[18px]" data-icon="warning">warning</span>
+</div>
+<span class="font-caption text-caption text-warning-text font-medium">in withdrawal</span>
+<span class="font-caption text-[11px] text-warning-text/80 mt-1">Milk withholding</span>
+</div>
+</div>
+</section>
+<!-- Report Card 4: Herd Structure (Donut Chart) -->
+<section class="w-full bg-surface rounded-[20px] p-space-lg shadow-[0_1px_2px_rgba(12,19,31,0.04),0_8px_24px_rgba(12,19,31,0.06)] flex flex-col space-y-3">
+<header class="flex justify-between items-center">
+<h2 class="font-title text-[17px] font-semibold text-text-primary">Herd structure</h2>
+<button class="flex items-center text-info-text font-label text-label font-medium hover:opacity-80 transition-opacity" type="button">
+<span>View</span>
+<span class="material-symbols-outlined text-[16px] ml-0.5" data-icon="chevron_right">chevron_right</span>
+</button>
+</header>
+<!-- Donut & Legend Container -->
+<div class="flex items-center justify-between pt-1">
+<!-- 2D SVG Donut Chart -->
+<div class="relative w-36 h-36 flex items-center justify-center shrink-0">
+<svg class="w-36 h-36 -rotate-90 transform" viewbox="0 0 120 120">
+<!-- Background Ring -->
+<circle cx="60" cy="60" fill="transparent" r="46" stroke="#F4F7FC" stroke-width="16"></circle>
+<!-- Milking: 72.8% (stroke-dasharray: 210.4 289) -->
+<circle cx="60" cy="60" fill="transparent" r="46" stroke="#2B7BFF" stroke-dasharray="210.4 289" stroke-dashoffset="0" stroke-width="16"></circle>
+<!-- Heifers: 16.4% (stroke-dasharray: 47.4 289) offset: -210.4 -->
+<circle cx="60" cy="60" fill="transparent" r="46" stroke="#8B92B8" stroke-dasharray="47.4 289" stroke-dashoffset="-210.4" stroke-width="16"></circle>
+<!-- Dry: 9.6% (stroke-dasharray: 27.7 289) offset: -257.8 -->
+<circle cx="60" cy="60" fill="transparent" r="46" stroke="#1EAA52" stroke-dasharray="27.7 289" stroke-dashoffset="-257.8" stroke-width="16"></circle>
+<!-- Bulls: 1.2% (stroke-dasharray: 3.5 289) offset: -285.5 -->
+<circle cx="60" cy="60" fill="transparent" r="46" stroke="#A75906" stroke-dasharray="3.5 289" stroke-dashoffset="-285.5" stroke-width="16"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none">
+<span class="font-title text-[20px] font-bold text-text-primary leading-tight">250</span>
+<span class="font-caption text-[11px] text-text-tertiary">Total head</span>
+</div>
+</div>
+<!-- Donut Breakdown Legend -->
+<div class="flex flex-col space-y-2 pl-3 grow">
+<div class="flex items-center justify-between text-caption">
+<div class="flex items-center space-x-2">
+<span class="w-2.5 h-2.5 rounded-full bg-accent"></span>
+<span class="text-text-secondary">Milking</span>
+</div>
+<div class="font-semibold text-text-primary">182 <span class="font-normal text-text-tertiary text-[11px]">(72.8%)</span></div>
+</div>
+<div class="flex items-center justify-between text-caption">
+<div class="flex items-center space-x-2">
+<span class="w-2.5 h-2.5 rounded-full bg-[#8B92B8]"></span>
+<span class="text-text-secondary">Heifers</span>
+</div>
+<div class="font-semibold text-text-primary">41 <span class="font-normal text-text-tertiary text-[11px]">(16.4%)</span></div>
+</div>
+<div class="flex items-center justify-between text-caption">
+<div class="flex items-center space-x-2">
+<span class="w-2.5 h-2.5 rounded-full bg-supportStrong"></span>
+<span class="text-text-secondary">Dry</span>
+</div>
+<div class="font-semibold text-text-primary">24 <span class="font-normal text-text-tertiary text-[11px]">(9.6%)</span></div>
+</div>
+<div class="flex items-center justify-between text-caption">
+<div class="flex items-center space-x-2">
+<span class="w-2.5 h-2.5 rounded-full bg-warning-text"></span>
+<span class="text-text-secondary">Bulls</span>
+</div>
+<div class="font-semibold text-text-primary">3 <span class="font-normal text-text-tertiary text-[11px]">(1.2%)</span></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom List Card with Chevron Rows -->
+<section class="w-full bg-surface rounded-[20px] p-2 shadow-[0_1px_2px_rgba(12,19,31,0.04),0_8px_24px_rgba(12,19,31,0.06)] divide-y divide-border">
+<!-- Row 1: Health records -->
+<button class="w-full p-3 flex items-center justify-between rounded-xl hover:bg-surfaceAlt transition-colors text-left" type="button">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-full bg-info-bg flex items-center justify-center text-accentFill">
+<span class="material-symbols-outlined text-[20px]" data-icon="medical_services">medical_services</span>
+</div>
+<div>
+<div class="font-label text-label font-semibold text-text-primary">Health records</div>
+<div class="font-caption text-caption text-text-tertiary">Log and active prescriptions</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-text-tertiary text-[20px]" data-icon="chevron_right">chevron_right</span>
+</button>
+<!-- Row 2: Team & roles -->
+<button class="w-full p-3 flex items-center justify-between rounded-xl hover:bg-surfaceAlt transition-colors text-left" type="button">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-text-primary">
+<span class="material-symbols-outlined text-[20px]" data-icon="group">group</span>
+</div>
+<div>
+<div class="font-label text-label font-semibold text-text-primary">Team &amp; roles</div>
+<div class="font-caption text-caption text-text-tertiary">Lena, Tom, Dr. Sam Okafor, Priya</div>
+</div>
+</div>
+<span class="material-symbols-outlined text-text-tertiary text-[20px]" data-icon="chevron_right">chevron_right</span>
+</button>
+</section>
+</div>
+<!-- Persistent Bottom Tab Bar Component (Mandatory Shared Component JSON Schema) -->
+<nav aria-label="Bottom Navigation" class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-space-xs py-space-sm h-16 max-w-[393px] mx-auto bg-surface shadow-[0_-4px_16px_rgba(12,19,31,0.04)] border-t border-border">
+<!-- Tab 1: Dashboard -->
+<button class="flex flex-col items-center justify-center text-text-tertiary px-3 py-1 hover:text-primary transition-colors active:scale-95 duration-150" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="dashboard">dashboard</span>
+<span class="font-caption text-[11px] leading-tight mt-0.5">Dashboard</span>
+</button>
+<!-- Tab 2: Herd -->
+<button class="flex flex-col items-center justify-center text-text-tertiary px-3 py-1 hover:text-primary transition-colors active:scale-95 duration-150" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="pets">pets</span>
+<span class="font-caption text-[11px] leading-tight mt-0.5">Herd</span>
+</button>
+<!-- Tab 3: Milk -->
+<button class="flex flex-col items-center justify-center text-text-tertiary px-3 py-1 hover:text-primary transition-colors active:scale-95 duration-150" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="water_drop">water_drop</span>
+<span class="font-caption text-[11px] leading-tight mt-0.5">Milk</span>
+</button>
+<!-- Tab 4: Breeding -->
+<button class="flex flex-col items-center justify-center text-text-tertiary px-3 py-1 hover:text-primary transition-colors active:scale-95 duration-150" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="favorite">favorite</span>
+<span class="font-caption text-[11px] leading-tight mt-0.5">Breeding</span>
+</button>
+<!-- Tab 5: Reports (Active Target) -->
+<button class="flex flex-col items-center justify-center bg-accentTint text-accentFill rounded-full px-3 py-1 active:scale-95 duration-150" type="button">
+<span class="material-symbols-outlined text-[22px]" data-icon="bar_chart">bar_chart</span>
+<span class="font-caption text-[11px] font-bold leading-tight mt-0.5 text-accentFill">Reports</span>
+</button>
+</nav>
+</main>
+</body></html>

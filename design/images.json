@@ -1,0 +1,140 @@
+[
+  {
+    "name": "barn-hero",
+    "file": "assets/images/barn-hero.jpg",
+    "role": "hero",
+    "screens": [
+      "01-sign-in"
+    ],
+    "source": "stitch",
+    "prompt": "Dairy barn at sunrise with Holstein cows"
+  },
+  {
+    "name": "lena-park",
+    "file": "assets/images/lena-park.jpg",
+    "role": "avatar",
+    "screens": [
+      "02-dashboard",
+      "16-team-roles"
+    ],
+    "source": "stitch",
+    "prompt": "Lena Park, farm manager, navy fleece vest"
+  },
+  {
+    "name": "empty-stall",
+    "file": "assets/images/empty-stall.jpg",
+    "role": "illustration",
+    "screens": [
+      "03-dashboard-empty"
+    ],
+    "source": "stitch",
+    "prompt": "Empty barn stall with golden straw"
+  },
+  {
+    "name": "cow-holstein",
+    "file": "assets/images/cow-holstein.jpg",
+    "role": "thumbnail",
+    "screens": [
+      "04-herd",
+      "09-milk",
+      "12-breeding"
+    ],
+    "source": "stitch",
+    "prompt": "Holstein cow close-up with ear tag"
+  },
+  {
+    "name": "cow-jersey",
+    "file": "assets/images/cow-jersey.jpg",
+    "role": "thumbnail",
+    "screens": [
+      "04-herd",
+      "08-pedigree",
+      "12-breeding"
+    ],
+    "source": "stitch",
+    "prompt": "Jersey cow close-up with yellow ear tag"
+  },
+  {
+    "name": "empty-pasture",
+    "file": "assets/images/empty-pasture.jpg",
+    "role": "illustration",
+    "screens": [
+      "05-herd-empty"
+    ],
+    "source": "stitch",
+    "prompt": "Empty pasture with wooden fence"
+  },
+  {
+    "name": "bella-pasture",
+    "file": "assets/images/bella-pasture.jpg",
+    "role": "hero",
+    "screens": [
+      "06-animal-profile",
+      "08-pedigree",
+      "10-milk-entry"
+    ],
+    "source": "stitch",
+    "prompt": "Holstein cow Bella in green pasture"
+  },
+  {
+    "name": "heifer-calf",
+    "file": "assets/images/heifer-calf.jpg",
+    "role": "thumbnail",
+    "screens": [
+      "08-pedigree"
+    ],
+    "source": "stitch",
+    "prompt": "Holstein heifer calf in straw"
+  },
+  {
+    "name": "bull-holstein",
+    "file": "assets/images/bull-holstein.jpg",
+    "role": "thumbnail",
+    "screens": [
+      "13-bulls-semen"
+    ],
+    "source": "stitch",
+    "prompt": "Holstein breeding bull"
+  },
+  {
+    "name": "bull-jersey",
+    "file": "assets/images/bull-jersey.jpg",
+    "role": "thumbnail",
+    "screens": [
+      "13-bulls-semen"
+    ],
+    "source": "stitch",
+    "prompt": "Jersey breeding bull"
+  },
+  {
+    "name": "sam-okafor",
+    "file": "assets/images/sam-okafor.jpg",
+    "role": "avatar",
+    "screens": [
+      "14-health",
+      "16-team-roles"
+    ],
+    "source": "stitch",
+    "prompt": "Dr. Sam Okafor, veterinarian, green coveralls"
+  },
+  {
+    "name": "priya-shah",
+    "file": "assets/images/priya-shah.jpg",
+    "role": "avatar",
+    "screens": [
+      "16-team-roles"
+    ],
+    "source": "stitch",
+    "prompt": "Priya Shah, farm admin, office"
+  },
+  {
+    "name": "tom-reyes",
+    "file": "assets/images/tom-reyes.jpg",
+    "role": "avatar",
+    "screens": [
+      "16-team-roles"
+    ],
+    "source": "stitch",
+    "prompt": "Tom Reyes, farm worker, milking parlor"
+  }
+]
