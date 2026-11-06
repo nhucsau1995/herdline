@@ -1,0 +1,75 @@
+name: capture
+
+# Dispatched from the pod by make-poc-pod. Captures real Android screenshots + a demo GIF on a
+# KVM emulator and uploads them as the "capture" artifact. Never commits to the repo.
+# The emulator steps live in .github/scripts/capture-emulator.sh (copied from the skill's
+# templates/): android-emulator-runner runs each `script:` line in its own shell.
+on:
+  workflow_dispatch:
+
+jobs:
+  android:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Enable KVM
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: '17' }
+
+      - uses: subosito/flutter-action@v2
+        # Pin to the Flutter version the pod builds and tests with (setup.sh). Floating 'stable'
+        # moved to 3.47 in Nov 2026, which rejects the Gradle wrapper Flutter 3.35 generates.
+        with: { channel: stable, flutter-version: 3.35.0, cache: true }
+
+      - run: flutter pub get
+
+      # Build the test APKs before the emulator boots, so neither the emulator time nor the
+      # demo recording is spent on Gradle.
+      - name: Build capture APKs
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p capture-apks
+          flutter build apk --debug --target integration_test/screenshot_test.dart
+          cp build/app/outputs/flutter-apk/app-debug.apk capture-apks/shots.apk
+          flutter build apk --debug --target integration_test/demo_test.dart
+          cp build/app/outputs/flutter-apk/app-debug.apk capture-apks/demo.apk
+
+      - name: Install ffmpeg (not preinstalled on ubuntu-latest)
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+
+      - name: Capture on emulator
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: 34
+          arch: x86_64
+          target: google_apis
+          profile: pixel_6
+          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -noaudio -no-boot-anim
+          disable-animations: true
+          script: bash .github/scripts/capture-emulator.sh flutter
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: capture
+          path: |
+            screenshots/*.png
+            screenshots/demo.gif
+          if-no-files-found: error
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: capture-debug
+          path: |
+            capture-tmp/
+          if-no-files-found: ignore

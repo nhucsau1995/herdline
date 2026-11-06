@@ -27,9 +27,9 @@ Future<void> signIn(WidgetTester tester) async {
 
 Future<void> tap(WidgetTester tester, String key) async {
   final f = find.byKey(Key(key));
-  await tester.ensureVisible(f.first);
+  await tester.ensureVisible(f.last);
   await tester.pumpAndSettle();
-  await tester.tap(f.first);
+  await tester.tap(f.last);
   await tester.pumpAndSettle();
 }
 
