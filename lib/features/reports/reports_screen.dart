@@ -59,7 +59,7 @@ class _ReportsScreenState extends ConsumerState<ReportsScreen> {
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Text('Average yield', style: T.label.copyWith(color: Colors.white)),
               Text('${avg.toStringAsFixed(1)} L', key: const Key('avg-yield'), style: T.display.copyWith(color: Colors.white)),
-              Text(prev == null ? 'per cow per day over $span days' : 'per cow per day, ${avg - prev >= 0 ? '+' : ''}${(avg - prev).toStringAsFixed(1)} L vs the $span days before', style: T.caption.copyWith(color: Colors.white)),
+              Text(_compare(avg, prev, span), style: T.caption.copyWith(color: Colors.white)),
             ]),
           ),
           const SizedBox(height: 12),
@@ -92,7 +92,7 @@ class _ReportsScreenState extends ConsumerState<ReportsScreen> {
             child: Row(children: [
               _Num('Conception rate', '${view.conceptionRate}%', 'Target 45%', view.conceptionRate >= 45 ? Tone.success : Tone.warning),
               const SizedBox(width: 12),
-              _Num('Calving interval', '${view.calvingInterval} d', 'Optimal 385-400 d', view.calvingInterval <= 400 ? Tone.success : Tone.warning),
+              _Num('Calving interval', '${view.calvingInterval} d', '385-400 d', view.calvingInterval <= 400 ? Tone.success : Tone.warning),
             ]),
           ),
           _Report(
@@ -158,6 +158,13 @@ class _ReportsScreenState extends ConsumerState<ReportsScreen> {
       ),
     ]);
   }
+}
+
+String _compare(double avg, double? prev, int span) {
+  if (prev == null) return 'per cow per day over $span days';
+  final pct = (avg - prev) / prev * 100;
+  if (pct.abs() < 0.5) return 'per cow per day, steady vs the $span days before';
+  return 'per cow per day, ${pct > 0 ? '+' : ''}${pct.toStringAsFixed(1)}% vs the $span days before';
 }
 
 class _Report extends StatelessWidget {

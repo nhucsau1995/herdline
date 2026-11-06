@@ -76,6 +76,7 @@ class DashboardScreen extends ConsumerWidget {
       GridView.count(
         crossAxisCount: 2,
         shrinkWrap: true,
+        padding: EdgeInsets.zero,
         physics: const NeverScrollableScrollPhysics(),
         mainAxisSpacing: 12,
         crossAxisSpacing: 12,
