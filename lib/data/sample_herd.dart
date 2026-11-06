@@ -130,7 +130,8 @@ class SampleHerd {
         final day = today.subtract(Duration(days: k));
         final dim = a.daysInMilk! - k;
         if (dim <= 0) continue;
-        final y = a.curve.at(dim) * r(0.95, 1.05);
+        // Good grazing this week: today is a little above the 7-day average.
+        final y = a.curve.at(dim) * r(0.95, 1.05) * (k == 0 ? 1.03 : 1.0);
         double round1(double v) => (v * 10).round() / 10;
         milk.add(MilkRecord(animalId: a.id!, date: day, session: Session.am, liters: round1(y * 0.52)));
         milk.add(MilkRecord(animalId: a.id!, date: day, session: Session.pm, liters: round1(y * 0.48)));

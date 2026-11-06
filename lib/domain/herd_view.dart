@@ -51,8 +51,9 @@ class HerdView {
   }
 
   bool tagInUse(String tag, {int? exceptId}) {
-    final t = tag.trim().toUpperCase();
-    return data.animals.any((a) => a.tag.toUpperCase() == t && a.id != exceptId);
+    String norm(String s) => s.replaceAll(' ', '').toUpperCase();
+    final t = norm(tag);
+    return data.animals.any((a) => norm(a.tag) == t && a.id != exceptId);
   }
 
   // ---- milk ---------------------------------------------------------------------------------
@@ -94,9 +95,10 @@ class HerdView {
     return cows == 0 ? 0 : totalOn(day) / cows;
   }
 
-  double avgPerCowPeriod(int days) {
+  /// Average liters per cow per day over [days] days, ending [skip] days before today.
+  double avgPerCowPeriod(int days, {int skip = 0}) {
     var sum = 0.0;
-    for (var i = 0; i < days; i++) {
+    for (var i = skip; i < skip + days; i++) {
       sum += avgPerCow(today.subtract(Duration(days: i)));
     }
     return sum / days;
