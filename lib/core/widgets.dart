@@ -62,7 +62,7 @@ class StatusChip extends StatelessWidget {
       decoration: BoxDecoration(color: bg, borderRadius: BorderRadius.circular(999)),
       child: Row(mainAxisSize: MainAxisSize.min, children: [
         if (icon != null) ...[Icon(icon, size: 14, color: fg), const SizedBox(width: 4)],
-        Text(label, style: T.caption.copyWith(color: fg, fontWeight: FontWeight.w600)),
+        Flexible(child: Text(label, style: T.caption.copyWith(color: fg, fontWeight: FontWeight.w600), maxLines: 1, overflow: TextOverflow.ellipsis)),
       ]),
     );
   }
