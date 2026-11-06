@@ -121,9 +121,16 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
               PrimaryButton(key: const Key('sign-in'), label: 'Sign in', icon: Icons.arrow_forward_rounded, onPressed: _signIn),
               const SizedBox(height: 14),
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                const Icon(Icons.lock_outline_rounded, size: 16, color: C.ink3),
+                if (ref.watch(herdProvider).isLoading)
+                  const SizedBox(width: 14, height: 14, child: CircularProgressIndicator(strokeWidth: 2))
+                else
+                  const Icon(Icons.lock_outline_rounded, size: 16, color: C.ink3),
                 const SizedBox(width: 6),
-                Text('All data stays on this device', style: T.caption.copyWith(color: C.ink3)),
+                Text(
+                  ref.watch(herdProvider).isLoading ? 'Preparing the herd on this device...' : 'All data stays on this device',
+                  key: const Key('storage-status'),
+                  style: T.caption.copyWith(color: C.ink3),
+                ),
               ]),
             ]),
           ),

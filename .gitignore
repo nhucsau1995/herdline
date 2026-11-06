@@ -54,3 +54,4 @@ capture-tmp/
 capture-apks/
 maestro-out/
 capture-watch*.log
+capture-run*/

@@ -13,6 +13,8 @@ void main() {
     await t.pumpWidget(const ProviderScope(child: HerdlineApp()));
     await binding.convertFlutterSurfaceToImage();
     await waitFor(t, find.byKey(const Key('sign-in')));
+    // First launch writes the sample farm to SQLite; start once it is ready.
+    await waitFor(t, find.text('All data stays on this device'), timeoutMs: 90000);
     await pumpFor(t, 1500);
 
     Future<void> shot(String name) async {
